@@ -38,6 +38,7 @@
         console.log(separar("Hola que tal"," "));
         */
 
+        /*
         //Ejercicio 4: Incluir n veces una misma cadena en un array mediante una función
         function nrepetir(a,b){
             const c = [];
@@ -47,6 +48,21 @@
             return c;
         }
         console.log(nrepetir("Alberto",3));
+        */
+
+        //Ejercicio 5: Programa una función que invierta los caracteres de una cadena de texto
+        function invertir(a){
+            const c = [];
+            let b = "";
+            for (let i = a.length; i >0 ; i--) {
+                c[a.length-i]=a[i-1];
+                b = c.join("");
+            }
+            return b;
+        }
+        console.log(invertir("Alberto"));
+
+
 
     </script>
     
