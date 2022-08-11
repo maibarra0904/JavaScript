@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        //Ejercicio 1: Imprimiendo un extracto de frase
+        frase = prompt("Ingresa una frase");
+        console.log(frase.slice(1,5)); //fragmento de una subcadena
+        console.clear();
+        */
+
+        /*
+        //Ejercicio 2: Llevar a minuscula o mayuscula una cadena
+        frase = prompt("Ingresa una frase:");
+        
+        console.log(frase.toLocaleUpperCase());
+        console.log(frase.toLocaleLowerCase());
+        */
+
+        /*
+        //Ejercicio 3: Invertir una palabra y verificar si es palindromo
+        palabra = prompt("Ingresa una palabra o frase:")
+
+        let cadena_inv = [];
+        for (let i =0 ; i <palabra.length; i ++) {
+            cadena_inv[palabra.length-i]=palabra[i];
+        }
+        
+        let pal = cadena_inv.join("")
+        console.log(cadena_inv.join(""));
+
+        if(pal==palabra){
+            console.log("Si es palíndromo");
+        }
+        else{
+            console.log("No es palíndromo");
+        };
+        */
+
+        /*
+        //Ejercicio 4: Reemplazar una parte de la cadena
+        let correo = "mario.ibarra.86@gmail.com"
+        let correo_mod = correo.replace('mario','alberto');
+        console.log(correo_mod);
+        */
+
+        /*
+        //Ejercicio 5: Reemplazar una cadena a partir de un caracter
+        let correo = "mario.ibarra.86@gmail.com"
+        correo2 = correo.replace(correo.substring(correo.indexOf("@")+1,correo.length),"hotmail.com");
+        console.log(correo2);
+        */
+
+        //Ejercicio 6: Separando cadenas de texto
+        valor = prompt("Ingresa un valor con dos decimales: ");
+
+        let puntuacion = valor.indexOf(".");
+
+        let separador=[];
+
+        if(puntuacion!=0){
+            separador = valor.split(".");
+        }
+        else{
+            separador = valor.split(",");
+        }
+
+        console.log(separador[0]+" dólares y "+separador[1]+" centavos.");
+
+
+    </script>
+
+</body>
+</html>

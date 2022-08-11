@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var hola = "Hola";
+        let hello = "Hello";
+        let Nombre = "Mario";
+        let Apellido = "Ibarra";
+        let Apellido2 = new String("Martinez");
+        let Nombre_ = Nombre.concat(" ",Apellido);
+        
+        const PI = 3.1416;
+        console.log(hola);
+        console.log(hello);
+        console.log(2*PI)  ;
+        console.log(Nombre.length,Apellido.length,Apellido2.length);
+        console.log(Nombre.includes("ar"));
+        console.log(Nombre_.split(" "));
+        console.log(Nombre.toUpperCase());
+
+        //Concatenación con String
+        console.log("Hola mi nombre es "+Nombre+" "+Apellido+".")
+        //Concatenación con Template String
+        console.log(`Hola mi nombre es ${Nombre} ${Apellido}.`)
+
+        let a = 3.14; // En JavaScript no es necesario declarar el tipo de número (int, float, etc)
+        let b = "4.77";
+        console.log(typeof(a),typeof(b)); // typeof verifica el tipo de variable
+        console.log(a+parseFloat(b)); //parsFloat convierte un numero String a formato de número
+        console.log(parseInt(a.toFixed(0))+parseInt(parseFloat(b).toFixed(0)));
+
+        let c = Boolean(" "); // Boolean permite dar un valor de verdadero o falso dependiendo del contexto
+        console.log(c);
+
+        let d; // JS permite crear valores sin valor asignado, estas se categorizan como undefined
+        console.log(d);
+
+        let e = null; // La variable intencionalmente fue creada como vacía (null) 
+        console.log(e);
+
+        let f = "Hola"*3; //Arrojará NaN debido a que se está intentando operar con cadena de texto (esto sí es posible hacerlo en Python)
+        console.log(f);
+
+        
+        //Funcion declarada
+        primera_funcion(); // Las funciones declaradas en JS pueden ejecutarse antes de su declaración
+        
+        function primera_funcion(g){
+            console.log("Uno");
+            console.log("Dos");
+            console.log("Tres");
+            return 2*g;
+        }
+        primera_funcion(); //Ejecuta la función (lineas de código) sin el valor de su retorno
+        
+        h = primera_funcion(2);
+        console.log(h);
+
+        //Funcion expresada
+
+        // funcion_anonima(); En una función expresada no es posible ejecutarla antes de su declaración
+
+        const funcion_anonima = function(){
+            console.log("Función expresada")
+        }
+
+        funcion_anonima();
+
+        const i =[1,3,"Hola",["Mario","Alberto"]];
+        console.log(i);
+        console.log(i.length);
+        console.log(i[2]);
+        console.log(i[3][1]);
+        
+        const j = Array(10).fill(true);
+        console.log(j);
+
+        i.push("Evelyn"); //Agregar elementos a un Array
+        i.push("Mariuxi");
+        console.log(i);
+
+        i.pop(); // Borra el ultimo elemento de un Array
+        console.log(i);
+        
+        i.forEach(function (elemento){  //Ejecuta una función por cada elemento de un array
+            console.log("Elemento "+elemento);
+        });
+
+        //Formas de declarar un objeto
+        const k = {};
+        const l = new Object();
+        console.log(k);
+        console.log(l);
+
+        // Dentro de un objeto, las variables son atributos y las funciones son métodos
+
+        const mario = {
+            nombre:"Mario",
+            apellido:"Ibarra",
+            pasatiempos: ["Programar", "Leer"],
+            email: "mario_ibarra_86@hotmail.com",
+            labores : {primera:"ESGRUM",segunda:"SENEFELDER",tercera:"BCBG",cuarta:"UAE"},
+
+            saludo: function(){
+                console.log("Hola "+mario["apellido"]);
+            },
+
+            saludo2 :function(){
+                console.log("Hola "+this.apellido); //Forma alternativa de llamar a un atributo dentro del mismo objeto
+            }
+
+        }
+
+        console.log(mario);
+        console.log(mario["nombre"]); // Mecanismo para llamar a un atributo
+        console.log(mario.saludo()); // Mecanimso para llamar a un método
+        console.log(mario.saludo2());
+        console.log(mario.nombre);
+        console.log(mario.labores.primera);
+
+        console.log(Object.keys(mario));
+        console.log(Object.values(mario));
+
+        console.log("7"==7); // Doble igual compara contenido sin considerar el tipo de dato
+        console.log("7"===7); // Triple igual compara contenido considerando el tipo de dato
+
+        m = 2;
+        m++; //operador unario
+        console.log(m);
+
+        // Operadores lógicos
+        /*
+        ! - No
+        && - Y
+        || - O
+        */
+
+        let edad = 35;
+
+        //Condicional if else
+        if(edad>=18){
+            console.log("Eres mayor de edad");
+        }
+        else{
+            console.log("Eres menor de edad");
+        };
+        // Operador ternario equivalente a if else
+        let n = (edad>=18) ? "Eres mayor de edad" : "Eres menor de edad";
+        console.log(n);
+
+        n1=3;
+        n2=2;
+        operacion=4;
+
+        switch (operacion) {
+            case 1:
+                console.log(n1+n2); 
+                break;
+            case 2:
+                console.log(n1-n2);
+                break;
+            case 3:
+                console.log(n1*n2);
+                break;
+            case 4:
+                console.log(n1%n2); // Residuo de la operación de división
+                break;
+            default:
+                console.log("Operación no definida");
+                break;
+        }
+
+        contador = 0;
+
+        //Bucle While: Primero se verifica la condición y luego ejecuta el código interior
+        while(contador<10){
+            console.log("W"+contador);
+            contador++;
+        }
+
+        //Bucle do While: Primero ejecuta el código interior y luego verifica la condición
+        do{
+            console.log("dW"+contador);
+            contador++;
+        }while(contador<10)
+
+        //Time en consola
+        console.time("Tiempo de conteo del 0 al 9");
+        //Bucle for
+        for (let conta = 0; conta < 10; conta ++) {
+            console.log("f"+conta);
+        }
+        console.timeEnd("Tiempo de conteo del 0 al 9");
+
+        //Diferencia entre break y continue
+        for (let i=0;i<10;i++){
+            
+            if(i===4){
+                continue; // continue sigue con el bucle sin tomar en cuenta esa condición
+            }
+
+            else if(i===7){
+                break; // break detiene el bucle
+            }
+            console.log(i);
+
+        }
+
+
+
+        //Variante for in (Recorre propiedades de un objeto)
+        for (const i in mario) {
+            console.log(i,":",mario[i]);
+        }
+
+        //Variante for of (Recorre elementos de un objeto o cadena de texto)
+        for (const h of i) {
+            console.log(h);
+        }
+
+        //Manejo de errores
+        try {
+            console.log("Código que se evalua");
+            console.log(noexiste);
+        } catch (error) {
+            console.log("Código que se ejecuta en caso de error y este error es: "+error);
+        } finally {
+            console.log("Esto siempre se ejecuta");
+        }
+
+        //Mensaje de error personalizado
+        try {
+            let num = "y";
+            if(isNaN(num)){
+                throw new Error("El caracter no es numérico");
+            }
+            console.log(num*num);
+            
+        } catch (error) {
+            console.log(error);
+        }
+
+        //Destructuracion
+        const valores = ["Ok",2,3];
+
+        const [primer,segundo,tercer] = valores; // Crea variables con valores de cada elemento de un array
+
+        console.log(primer,segundo,tercer);
+        
+        /* La destructuración también funciona en objetos
+        En caso de objetos, se crean nuevas variables a partir de las propiedades del objeto del cual se toma
+        la información. Para poder llevar a cabo esto, el nombre de las variables creadas deben
+        tener el mismo nombre de la propiedad del objeto del cuál es tomado.
+        */
+        let {nombre,apellido} = mario; 
+
+        console.log(nombre,apellido);
+
+        //Funciones literales
+
+        let name = "Mario";
+        let last_name = "Ibarra";
+
+        const mar = {
+            name, last_name,  //Si ya han sido declaradas las variables antes no es necesario especificar su valor
+            saludo(){           //Forma alternativa de declarar un método dentro de un objeto
+                console.log("Hola "+mar["name"]);
+            },
+
+        }
+        console.log(mar);
+        mar.saludo();
+
+        //Parámetros REST
+
+        function add(a,b, ...c){
+            let resultado = a+b;
+
+            //permite repetir la misma sintaxis para nuevos parámetros
+            c.forEach(function(n){
+                resultado += n
+            });
+            return resultado;
+        }
+        console.log(add(1,2,5,6));
+
+
+        // Operador Spread
+        // Se utiliza para crear un array con el contenido de varios
+
+        const edades_primero = [4,5,5,4];
+        const edades_segundo = [6,5,6,7,5];
+        const edades_sinSpread = [edades_primero,edades_segundo]; //El nuevo array contiene dos elementos (2 arrays)
+        const edades_conSpread = [...edades_primero, ...edades_segundo]; // El nuevo array contiene nueve elementos (la unión de los elementos de los 2 arrays)
+
+        console.log(edades_sinSpread);
+        console.log(edades_conSpread);
+        console.log(add(...edades_conSpread)) //Una aplicación de la función add creada anteriormente
+
+        //Array function
+
+        const saludar = n_a => console.log("Hola, "+n_a);
+        saludar("Mario");
+
+        const suma = (r,s, ...t) => {
+            let solucion = r+s;
+            //permite repetir la misma sintaxis para nuevos parámetros
+            t.forEach(function(n){
+                solucion += n
+            });
+            console.log(solucion);
+        };
+        suma(3,4,5);
+
+        //Funcion constructora
+        function casa(area_terreno,construccion,dormitorios){
+            this.area_terreno = area_terreno;
+            this.construccion = construccion;
+            this.dormitorios = dormitorios;
+            console.log("Casa de "+area_terreno+" m2 de área, "+construccion+" m2 de construccion y "+dormitorios+" dormitorios");
+        }
+
+        // Un prototipo es un método que puede ser agregado a una función constructora desde fuera de la función
+        // Sirve para evitar la duplicidad en caso de llamarse a la FC varias veces
+        casa.prototype.info = function(){
+                console.log("Para más información comuníquese al...");
+            }
+
+        const casa1 = new casa(200,180,3);
+        const casa2 = new casa(300,150,4);
+
+        console.log(casa1);
+        console.log(casa2);
+        casa1.info(); // Forma de llamar a un prototipo
+
+        let banios=0;
+        
+        //Herencia prototípica: casa_detalle hereda de casa
+        function casa_detalle(area_terreno,construccion,dormitorios,banios){
+            this.super = casa;
+            this.super(area_terreno,construccion,dormitorios);
+            this.banios = banios;
+            
+        }
+        casa_detalle.prototype = new casa();
+        casa_detalle.prototype.constructor = casa;
+
+        
+        //En una herencia prototípica se puede hacer una modificación de el o los prototipos heredados
+        casa_detalle.prototype.info= function(){
+                console.log("Adicionalmente tiene ",casa3.banios," baños");
+                console.log("No olvides para mayor información llama al xxx");
+            }
+
+        const casa3 = new casa_detalle(300,200,5,3);
+        casa3.info();
+
+        //Las clases no reciben parámetros a diferencia de las funciones constructoras
+        class clase_casa{
+            //Los parámetros se crean en el constructor, éste es un método que se ejecuta al instanciar la clase
+            constructor(area_terreno,construccion,dormitorios){
+                this.area_terreno = area_terreno;
+                this.construccion = construccion;
+                this.dormitorios = dormitorios;
+            };
+            /*
+            Las clases no permiten impresiones directas en la consola sino a través de los métodos que contienen
+            En esos metodos para referenciar parametros es requerido usar this, a diferencia de las funciones
+            constructoras que pueden prescindir de esto
+            */
+            
+            propiedades(){
+                console.log("Casa de "+this.area_terreno+" m2 de área, "+this.construccion+" m2 de construccion y "+this.dormitorios+" dormitorios");
+            }
+            
+        }
+        
+        const nueva_casa = new clase_casa(200,180,3);
+        console.log(nueva_casa);
+        console.log(nueva_casa.propiedades());
+
+        class clase_casa_detalle extends clase_casa{
+            constructor(area_terreno,construccion,dormitorios,banios){
+                super(area_terreno,construccion,dormitorios);
+                this.banios=banios;
+                this.cocinas=null;
+            }
+            info_adicional(){
+                console.log("Adicionalmente tiene ",casa3.banios," baños")
+            }
+
+            //Método Estático: Puede ser llamado directamente sin necesidad de crear un nuevo objeto
+            static descripcion(){
+                console.log("Las casas requieren de información precisa antes de ser compradas");
+            }
+
+            //Métodos setter y getters
+            get g_cocinas(){
+                return this.cocinas;
+            }
+
+            set s_cocinas(cocinas){
+                this.cocinas=cocinas;
+            }
+        }
+
+        const new_home = new clase_casa_detalle(300,150,4,3);
+        console.log(new_home.propiedades());
+        console.log(new_home.info_adicional());
+        clase_casa_detalle.descripcion();
+        //clase_casa_detalle.info_adicional(); esto da un error dado a que no es un método estático
+        new_home.s_cocinas = "4"; //Se otorga un valor a un método setter
+        console.log(new_home.g_cocinas," cocinas"); //Se muestra el valor
+        new_home.s_cocinas = "6"; //Se otorga un valor a un método setter
+        console.log(new_home.g_cocinas," cocinas"); //Se muestra el valor
+
+        // Metodo Console
+        //console.clear(); borra el código que esté hasta este punto
+        console.error("Existe un error");
+        console.warn("Hay un aviso");
+        console.group("Ejemplo de Grupo");
+        console.log("Elemento 1");
+        console.log("Elemento 2");
+        console.groupEnd();
+        console.table(Object.entries(console).sort());
+        console.table(i);
+        let fecha = new Date();
+        console.log(fecha);
+        console.log(fecha.getDate()); // El día
+        console.log(fecha.getMonth());
+        console.log(fecha.getFullYear());
+        console.log(fecha.toDateString());
+        console.log(fecha.toLocaleString());
+        console.log(fecha.toLocaleTimeString());
+        console.log(Date.now());
+
+        //Objeto Math
+        console.log(Math.ceil(7.2)); //Redondea al inmediato superior
+        console.log(Math.floor(7.8)); //Redondea al inmediato inferior
+        console.log(Math.round(7.49));//Realiza un redondeo normal
+
+        /*
+        alert("Esto es una alerta");
+        confirmacion = confirm("Esto es una confirmacion");
+        nombre_w = prompt("Ingrese su nombre");
+        console.log(confirmacion, nombre_w);
+        */
+
+        // Expresiones regulares
+        let redaccion = "Mario Alberto Ibarra Martinez Ibarra"
+        let texto_buscado = new RegExp("Ibarra","ig"); //"ig" es una busqueda sin considerar mayusculas o minusculas
+                                                        //"" es una busqueda considerando mayusculas y minusculas
+        let texto_buscado2 = /Ibarra/ig; // Otra forma de declarar una expresión regular
+        console.log(texto_buscado.test(redaccion))
+        console.log(texto_buscado.exec(redaccion))
+        console.log(texto_buscado2.test(redaccion))
+        console.log(texto_buscado2.exec(redaccion))
+
+
+
+
+    </script>
+
+</body>
+</html>
