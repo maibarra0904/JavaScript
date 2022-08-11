@@ -64,7 +64,7 @@
         console.log(invertir("Alberto"));
         */
         
-
+        /*
         //Ejercicio 6: Verifica a través de una función cuantas veces se repite una palabra en una cadena
         function verifica_repeticion(a,b){
             const c = a.split(" ");
@@ -77,8 +77,22 @@
             return "La palabra: "+b+", se repite "+contador+" veces.";
         }
         console.log(verifica_repeticion("Hola Mario, Hola","Hola"));
+        */
 
 
+        //Ejercicio 7: Desarrolla una función que elimine un patrón repetitivo de un array
+
+        function del_pat(a,b){
+            const c = a.split(" ");
+            const d = [];
+            let e = "";
+            for (let i = 0; i < c.length; i++) {
+                d[i]=c[i].replace(b,"");
+                e = d.join(" ")
+            }
+            return e;
+        }
+        console.log(del_pat("xw1, xw2 y xw3","xw"));
 
 
     </script>
