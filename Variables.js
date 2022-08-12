@@ -3,7 +3,7 @@ export const a = Math.PI;
 
 export let m = "Mario Ibarra";
 
-
+export let apellido = "Ibarra";
 
 export function suma(a,b){
     return a +b;
