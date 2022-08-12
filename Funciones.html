@@ -123,7 +123,7 @@
         console.log(capicua(a));
         */
 
-        
+        /*
         //Ejercicio 10: Obtener el factorial de un numero
         function factorial(n){
             let b=1;
@@ -135,6 +135,48 @@
             return c;
         }        
         console.log(factorial(5));
+        */
+
+        /*
+        //Ejercicio 11: Verificar si un número ingresado es primo
+        a = prompt("Ingresa un número: ");
+
+        function es_primo(n){
+            let b = 2;
+            let contador = 0;
+            let c = "";
+            if(n>b){
+                for (let i = 0; i<n ; i++){
+                    if(n%(b+i)==0){
+                        contador++;
+                    }
+                }
+                if(contador>1){
+                    c = "No es primo"
+                }
+                else {
+                    c = "Es primo"
+                }
+            }
+                        
+            return c;
+        }
+        console.log(es_primo(a));
+        */
+
+        
+        //Ejercicio 12: Programa una función para convertir numeros de base binaria a decimal
+        a = prompt("Ingresa un numero binario:")
+
+        function bin_dec(n){
+            let dec = 0;
+            for(let i=0;i<n.length;i++){
+                dec += n[i]*Math.pow(2,n.length-i-1);
+            }
+            return dec;
+        }
+        console.log(bin_dec(a));
+
 
     </script>
     
