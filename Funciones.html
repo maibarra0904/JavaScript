@@ -79,7 +79,7 @@
         console.log(verifica_repeticion("Hola Mario, Hola","Hola"));
         */
 
-
+        /*
         //Ejercicio 7: Desarrolla una función que elimine un patrón repetitivo de un array
 
         function del_pat(a,b){
@@ -93,7 +93,48 @@
             return e;
         }
         console.log(del_pat("xw1, xw2 y xw3","xw"));
+        */
+        
+        /*
+        //Ejercicio 8: Programa una función que obtenga un número aleatorio entre 501 y 600
+        function random(){
+            let m = 501+ Math.round(99*Math.random());
+            return m;
+        }
+        console.log(random());
+        */
 
+        /*
+        //Ejercicio 9: Verificar si un número ingresado es capicua
+        a = prompt("Ingrese un numero: ")
+        function capicua(n){
+            const c = [];
+            let b = 0;
+            let d = false;
+            for (let i = n.length; i >0 ; i--) {
+                c[n.length-i]=n[i-1];
+                b = parseInt(c.join(""));
+            }
+            if(n==b){
+                d=true;
+            }
+            return d;
+        }
+        console.log(capicua(a));
+        */
+
+        
+        //Ejercicio 10: Obtener el factorial de un numero
+        function factorial(n){
+            let b=1;
+            let c=1;
+            for (let i = 0; i<n ; i++){
+                b = n-i;
+                c *= b
+            }
+            return c;
+        }        
+        console.log(factorial(5));
 
     </script>
     
