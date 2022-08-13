@@ -164,7 +164,7 @@
         console.log(es_primo(a));
         */
 
-        
+        /*
         //Ejercicio 12: Programa una función para convertir numeros de base binaria a decimal
         a = prompt("Ingresa un numero binario:")
 
@@ -176,6 +176,41 @@
             return dec;
         }
         console.log(bin_dec(a));
+        */
+
+        
+        //Ejercicio 13: Función que cuente vocales y consonantes de una cadena
+        const voc = ["a","e","i","o","u"];
+        const cons = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
+
+        a = prompt("Ingrese una palabra: ")
+        
+        const deletreo = [];
+        for(let k=0;k<a.length;k++){
+            deletreo[k]=a[k];
+        }
+
+        function div_vc(n){
+            let vocales=0, vocales2=0, consonantes = 0, consonantes2=0;
+            for(let i=0;i<voc.length;i++){
+                if(n.includes(voc[i])){
+                    let m = deletreo.filter(value => value == voc[i])
+                    vocales++;
+                    vocales2+=m.length;
+                }
+            }
+            for(let j=0;j<cons.length;j++){
+                if(n.includes(cons[j])){
+                    let s = deletreo.filter(value => value == cons[j])
+                    consonantes++;
+                    consonantes2+=s.length;
+                }
+            }
+            
+            return "La palabra '"+n+"' incluye "+vocales+" vocales y "+consonantes+" consonantes ("+vocales2+ " voc y "+consonantes2+" cons en total)"
+        }
+        console.log(div_vc(a));
+
 
 
     </script>
