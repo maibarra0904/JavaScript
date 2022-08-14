@@ -178,7 +178,7 @@
         console.log(bin_dec(a));
         */
 
-        
+        /*
         //Ejercicio 13: Función que cuente vocales y consonantes de una cadena
         const voc = ["a","e","i","o","u"];
         const cons = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
@@ -210,9 +210,75 @@
             return "La palabra '"+n+"' incluye "+vocales+" vocales y "+consonantes+" consonantes ("+vocales2+ " voc y "+consonantes2+" cons en total)"
         }
         console.log(div_vc(a));
+        */
+
+        /*
+        //Ejercicio 14: Presentar mediante una función los números más altos y bajos de un array
+
+        a = prompt("Ingrese un conjunto de valores enteros separados por comas (Ej: 25, 30, -12,... etc)")
+
+        function MayorYMenor(n){
+            const valores = n.split(",")
+            let mayor = 0, menor = 0;
+            for(let i=0;i<valores.length;i++){
+                if(valores[i]>mayor){
+                    mayor = valores[i];
+                }
+                else if(valores[i]<menor){
+                    menor = valores[i];
+                }
+            }
+            return "El valor mayor de los valores registrados es '"+mayor+"' y el menor es'"+menor+"'."
+        }
+        
+        console.log(MayorYMenor(a));
+        */
+
+        /*
+        //Ejercicio 15: Separar en dos arrays los números pares e impares respectivamente de una lista de números ingresados 
+
+        a = prompt("Ingrese un conjunto de valores enteros separados por comas (Ej: 25, 30, -12,... etc)");
+
+        function Pares_Impares(n){
+
+            const valores = n.split(",");
+            const pares = [], impares = [];
+
+            for(let i=valores.length;i>=0;i--){
+                if(valores[i]%2==0){
+                    pares.unshift(valores[i]);
+                }
+                else{
+                    impares.unshift(valores[i]);
+                }
+            }
+
+            return "Lista de valores pares: "+pares+"\nLista de valores impares: "+impares
+
+        }
+
+        console.log(Pares_Impares(a));
+        */
 
 
+        //Ejercicio 16: Programa una función que ingrese un conjunto de numeros, elimine los duplicados y cree dos
+        //arrays uno para colocar los números de forma ascendente y otro descendente
 
+        a = prompt("Ingrese un conjunto de valores enteros separados por comas (Ej: 25, 30, -12,... etc):")
+        
+        
+
+        function Filtrar_Ordenar(n){
+            const valores = n.split(",");
+            const filtro =  valores.filter((item,index)=>{
+                                return valores.indexOf(item) === index;
+                            })
+
+            return "La lista ingresada, filtrada y ordenada de forma ascendente: "+filtro.sort(function(a,b){return a - b;})+"\nLa lista ingresada, filtrada y ordenada de forma descendente: "+filtro.reverse(function(a,b){return a - b;});
+        }
+        console.log(a);
+        console.log(Filtrar_Ordenar(a));
+        
     </script>
     
 </body>
