@@ -260,7 +260,7 @@
         console.log(Pares_Impares(a));
         */
 
-
+        /*
         //Ejercicio 16: Programa una función que ingrese un conjunto de numeros, elimine los duplicados y cree dos
         //arrays uno para colocar los números de forma ascendente y otro descendente
 
@@ -276,6 +276,55 @@
         }
         console.log(a);
         console.log(Filtrar_Ordenar(a));
+        */
+
+        
+        //Ejercicio 17: Crear una clase llamada pelicula con id de pelicula, titulo, director, año estreno, pais origen, estreno, genero y calificacion en IMBD con validaciones
+
+        class IMBD{
+
+            
+            constructor(id, titulo, director, estreno, origen, genero, calificacion){
+                this.id = id;
+                this.titulo = titulo;
+                this.director = director;
+                this.estreno = estreno;
+                this.origen = origen;
+                this.genero = genero;
+                this.calificacion = calificacion;
+                
+                const esLetra = (caracter) => {
+                    let ascii = caracter.toUpperCase().charCodeAt(0);
+                    return ascii > 64 && ascii < 91;
+                };
+
+                const esNumero = (caracter) => {
+                    let ascii = caracter.charCodeAt(0);
+                    return ascii > 47 && ascii < 58;
+                };
+
+                if(this.id.length!=9||esLetra(this.id[0])==false||esLetra(this.id[1])==false){
+                    alert('El id debe contar con 9 caracteres, los 2 primeros letras y el resto numeros');
+                }
+                else{
+                    for(let i=2;i<this.id.length;i++){
+                        if(esNumero(this.id[i])==false){
+                            alert('El id debe contar con 9 caracteres, los 2 primeros letras y el resto numeros');
+                        }
+                    }
+                }     
+            
+            }
+
+            
+        }
+
+        const registro = new IMBD("ab1544812","Titanic","Roberto", "20/01/1994","EEUU","Drama",9.1);
+        
+        
+
+        
+
         
     </script>
     
