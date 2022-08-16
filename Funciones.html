@@ -283,7 +283,6 @@
 
         class IMBD{
 
-            
             constructor(id, titulo, director, estreno, origen, genero, calificacion){
                 this.id = id;
                 this.titulo = titulo;
@@ -292,6 +291,21 @@
                 this.origen = origen;
                 this.genero = genero;
                 this.calificacion = calificacion;
+                
+                const paises = this.origen.split(",");
+                
+
+                const generos_aceptados = ['Action','Adult','Adventure','Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy','Film Noir','Game-Show','History', 'Horror', 'Musical', 'Music', 'Mystery', 'News', 'Reality-TV', 'Romance', 'Sci-Fi', 'Short', 'Sport', 'Talk-Show', 'Thriller', 'War', 'Western'];
+                const generos_ingresados = this.genero.split(",");
+                let contador_denegados = 0;
+                for(let i=0;i<generos_ingresados.length;i++){
+                        if(generos_aceptados.indexOf(generos_ingresados[i])==-1){
+                            contador_denegados++;
+                        }
+                    }
+                if(contador_denegados>0){
+                    alert('Uno o más géneros de películas no son aceptados');
+                }
                 
                 const esLetra = (caracter) => {
                     let ascii = caracter.toUpperCase().charCodeAt(0);
@@ -312,14 +326,48 @@
                             alert('El id debe contar con 9 caracteres, los 2 primeros letras y el resto numeros');
                         }
                     }
-                }     
-            
+                }
+
+                if(this.titulo.length>100){
+                    alert('El titulo debe tener un máximo de 100 caracteres');
+                }
+
+                if(this.director.length>50){
+                    alert('El director debe tener un máximo de 50 caracteres');
+                }
+
+                for(let i=0;i<this.estreno.length;i++){
+                        if(esNumero(this.estreno[i])==false){
+                            alert('El año debe ser numérico');
+                        }
+                }
+                if(this.estreno[1]==false||this.estreno[2]==false||this.estreno.length!=4){
+                            alert('Ingrese un año valido');
+                        }
+                
+                let Es_decimal = /^\d*(\.\d{1})?\d{0}$/;
+
+                if(Es_decimal.test(this.calificacion)==false){
+                    alert('En la calificación, se acepta hasta un decimal');
+                }
+                
+                
+                        
+            }
+            static genero_mostrar(){       
+                console.log(['Action','Adult','Adventure','Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy','Film Noir','Game-Show','History', 'Horror', 'Musical', 'Music', 'Mystery', 'News', 'Reality-TV', 'Romance', 'Sci-Fi', 'Short', 'Sport', 'Talk-Show', 'Thriller', 'War', 'Western']);
+                }
+
+            ficha(){
+                console.log('Id: \t\t\t\t\t'+this.id+'\nTitulo: \t\t\t\t'+this.titulo+'\nDirector: \t\t\t\t'+this.director+'\nAño Estreno: \t\t\t'+this.estreno+'\nPaís(es) de origen: \t'+this.origen+'\nGénero: \t\t\t\t'+this.genero+'\nCalificación: \t\t\t'+this.calificacion);
             }
 
             
         }
 
-        const registro = new IMBD("ab1544812","Titanic","Roberto", "20/01/1994","EEUU","Drama",9.1);
+        const registro = new IMBD("ab1244812","Titanic","Roberto", "1998","EEUU,Japon","Comedy",9.1);
+        IMBD.genero_mostrar();
+        registro.ficha();
         
         
 
