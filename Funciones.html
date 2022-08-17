@@ -278,7 +278,7 @@
         console.log(Filtrar_Ordenar(a));
         */
 
-        
+        /*
         //Ejercicio 17: Crear una clase llamada pelicula con id de pelicula, titulo, director, año estreno, pais origen, estreno, genero y calificacion en IMBD con validaciones
 
         class IMBD{
@@ -368,8 +368,33 @@
         const registro = new IMBD("ab1244812","Titanic","Roberto", "1998","EEUU,Japon","Comedy",9.1);
         IMBD.genero_mostrar();
         registro.ficha();
+        */
+        
+        //Ejercicio 18: Ejecute una función que ingrese un número entero positivo y presente los números naturales
+        // de uno en uno hasta llegar al número, con intervalos de un segundo
+        
+        a= prompt('Ingrese un número entero positivo:')
+
+        function contar_hasta(n){
+            let contador=1;
+            const conteo = setInterval(()=>{
+                if(contador==n){
+                clearInterval(conteo);
+                }
+                console.log(contador);
+                contador++;    
+            },1000)
+        }
+
+        contar_hasta(a);
+        
+
+        
+            
+
         
         
+
 
         
 
