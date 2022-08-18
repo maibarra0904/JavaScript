@@ -463,8 +463,30 @@
         console.log(texto_buscado2.test(redaccion))
         console.log(texto_buscado2.exec(redaccion))
 
+        //Codigo Sincrono Bloqueante
+        function Sincrono_bloqueante() {
+        console.log("Código Síncrono");
+        console.log("Inicio");
 
+        function dos(){
+        console.log("Dos");
+        }
 
+        function uno(){
+        console.log("Uno");
+        dos();
+        console.log("Tres");
+        }
+        
+        uno();
+        console.log("Fin");
+        };
+
+        Sincrono_bloqueante();
+
+        
+        
+        
 
     </script>
 
