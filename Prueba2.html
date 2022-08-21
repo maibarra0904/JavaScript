@@ -508,6 +508,135 @@
         
         Asincrono_Nobloqueante();
 
+
+        //Callbacks: Control de código asincrónico
+        function CuadradoCallback(value,callback){
+            setTimeout(() => {
+               callback(value,value*value); 
+            }, 0 || Math.random()* 1000  );
+        }
+        /*
+        CuadradoCallback(0, (value, result) => {
+            console.log("Inicia Callback");
+            console.log('Callback: '+value+','+result);
+            CuadradoCallback(1, (value, result) =>{
+                console.log('Callback: '+value+','+result);
+                CuadradoCallback(2, (value, result) => {
+                    console.log('Callback: '+value+','+result);
+                    CuadradoCallback(3, (value, result) => {
+                        console.log('Callback: '+value+','+result);
+                        CuadradoCallback(4, (value, result) =>{
+                            console.log('Callback: '+value+','+result);
+                            CuadradoCallback(5, (value, result) => {
+                                console.log('Callback: '+value+','+result);
+                            })
+                        })
+                    })
+                })
+            })
+        })
+        */
+
+        //Promesas con funciones asincronas
+
+        function cuadradoPromise(value) {
+            if (typeof value !== "number") {
+                return Promise.reject('Error, el valor '+value+'ingresado no es un número');
+            }
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        value,
+                        result: value * value
+                    });
+                },0| Math.random() * 1000);
+            });
+        }
+
+        
+        async function funcionAsincrona(){
+            try{
+                console.log('Inicio Funcion Asincrona');
+                let obj = await cuadradoPromise(0); // await obliga a esperar que se ejecute el código para pasar a la siguiente línea
+                console.log('Funcion asincrona: '+obj.value+','+obj.result);
+
+                obj = await cuadradoPromise(1);
+                console.log('Funcion asincrona: '+obj.value+','+obj.result);
+            } catch(err){
+
+            }
+        }
+
+        funcionAsincrona();
+
+
+        //Symbols
+
+        let id = Symbol("id");
+        let id2 = Symbol("id");
+
+        console.log(id===id2);
+        console.log(id,id2);
+
+        const NOMBRE = Symbol();
+        const Age = Symbol();
+        const SALUDAR = Symbol();
+        const persona = {
+            [NOMBRE]:'Mario',
+            [Age]: 36
+        };
+
+        persona.NOMBRE = 'Mario Ibarra';
+        persona.NOMBRE = 'Evelyn Pacheco';
+        console.log(persona[NOMBRE]);
+        console.log(persona[Age]);
+        console.log(persona.NOMBRE);
+
+        persona[SALUDAR]=function(a){
+            console.log('Hola: '+a);
+        }
+
+        persona[SALUDAR]('Mario');
+
+        
+        //Sets: Los sets son objetos, para convertirlos en arreglos iterables es necesario redefinirlos
+
+        const set = new Set([1,2,3,3,4,5,false,false,true]);
+        console.log(set);
+        set.add(6);
+        console.log(set.size);
+
+        const arr = Array.from(set); // Mecanismo para convertir un objeto en array
+
+        console.log(arr[5]);
+
+
+        //Map: Es el equivalente a diccionarios en Python, difiere rotundamente con el concepto de mapa en Python
+        
+        let mapa = new Map();
+
+        mapa.set("Nombre","Mario");
+        mapa.set("Apellido","Ibarra");
+
+        console.log(mapa);
+        console.log(mapa.get("Nombre"));
+        console.log(mapa.keys());
+        console.log(mapa.values());
+
+        mapa.set("Nombre","Mario Alberto");
+        console.log(mapa.get("Nombre"));
+
+        for(let [llave,val] of mapa) {
+            console.log("Key: "+llave+", Value: "+val+"\n");
+        }
+
+        //Una forma alternativa de crear un mapa ingresando directamente los datos
+
+        const mapa2 = new Map([['Nombre','Mario'],['Apellido','Ibarra']]);
+
+        console.log(mapa2);
+
+
     </script>
 
 </body>
