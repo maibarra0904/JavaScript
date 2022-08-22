@@ -637,6 +637,64 @@
         console.log(mapa2);
 
 
+        //WeakSet: Es como un set pero que requiere agregar sus elemento de uno en uno
+
+        const ws = new WeakSet();
+
+        let valor1 =  {"v1":1};
+        let valor2 =  {"v2":2};
+        let valor3 =  {"v3":3};
+        let valor4 =  {"v1":1};
+
+        ws.add(valor1);
+        ws.add(valor2);
+        ws.add(valor4);
+
+        console.log(ws);
+        console.log(ws.has(valor1));
+        console.log(ws.has(valor3));
+
+        //Iteradores e Iterables
+
+        const iterable = [1,3,5,7]; // Aplica en cualquier objeto iterable como cadenas, mapas, sets, etc...
+        const iterador = iterable[Symbol.iterator]();
+
+        console.log(iterador);
+        console.log(iterable);
+
+        for (let conta = 0; conta < iterable.length + 1; conta ++) {
+            console.log(iterador.next().value);
+        }
+        
+
+        //Generadores: Sirve para recorrer entre yields de una funcion iterable ejecutando los codigos intermedios
+
+        function cuadrado(valor) {
+            setTimeout(() => {
+            return console.log({valor, resultado: valor*valor })
+            , Math.random() * 10000
+            })
+        }
+
+
+        function* iterable2(){
+            yield "Hola";
+            console.log("Hola2");
+            yield "Hola2";
+            yield cuadrado(1);
+            yield cuadrado(2);
+            yield cuadrado(3);
+            yield cuadrado(4);
+        }
+
+        let iterador2 = iterable2();
+
+        console.log(iterador2.next());
+        console.log(iterador2.next());
+        
+        const lista = [...iterable2()]; // Mecanismo para guardar en un array los elementos de una funcion iterable
+        console.log(lista);
+        
     </script>
 
 </body>
