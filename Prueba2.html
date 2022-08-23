@@ -506,7 +506,7 @@
         console.log("Fin");
         }
         
-        Asincrono_Nobloqueante();
+        //Asincrono_Nobloqueante();
 
 
         //Callbacks: Control de código asincrónico
@@ -567,7 +567,7 @@
             }
         }
 
-        funcionAsincrona();
+        //funcionAsincrona();
 
 
         //Symbols
@@ -661,21 +661,21 @@
 
         console.log(iterador);
         console.log(iterable);
-
+        
         for (let conta = 0; conta < iterable.length + 1; conta ++) {
             console.log(iterador.next().value);
         }
         
 
         //Generadores: Sirve para recorrer entre yields de una funcion iterable ejecutando los codigos intermedios
-
+        /*
         function cuadrado(valor) {
             setTimeout(() => {
             return console.log({valor, resultado: valor*valor })
             , Math.random() * 10000
             })
         }
-
+        
 
         function* iterable2(){
             yield "Hola";
@@ -689,12 +689,45 @@
 
         let iterador2 = iterable2();
 
-        console.log(iterador2.next());
-        console.log(iterador2.next());
+        //console.log(iterador2.next());
+        //console.log(iterador2.next());
         
         const lista = [...iterable2()]; // Mecanismo para guardar en un array los elementos de una funcion iterable
-        console.log(lista);
+        //console.log(lista);
+        */
+
+
+        // Proxies
+
+        const person = {
+            nombre: "",
+            apellido: "",
+            edad: 0
+        }
+
+        const manejador = {
+            set(obj,prop,valo){
+
+                //Ejemplo de una restricción para agregar propiedades al objeto Proxy
+                if (Object.keys(obj).indexOf(prop) === -1){
+                return console.error("La propiedad "+prop+" no existe en el objeto persona. ");
+                }
+
+                obj[prop] = valo;
+            }
+        }
+
+        const marioa = new Proxy(person, manejador);
         
+        marioa.nombre = "Mario";
+        marioa.apellido = "Ibarra";
+        marioa.edad = 36;
+        marioa.academia = "Si"; // Se pueden agregar nuevas propiedades al objeto si no existe una restricción en su manejador
+
+        console.log(marioa);
+        console.log(person); //Las propiedades modificadas en el Proxy también modifican el objeto original
+                                
+
     </script>
 
 </body>
