@@ -726,7 +726,22 @@
 
         console.log(marioa);
         console.log(person); //Las propiedades modificadas en el Proxy también modifican el objeto original
-                                
+        
+        
+        //Propiedades dinámicas de los objetos
+
+        let aleatorio = Math.round(Math.random() * 100+5);
+
+        const objUsuario = {
+            ['id_'+aleatorio]:"Valor Aleatorio"
+        };
+        console.log(objUsuario);
+
+        const usuarios = ["Mario", "Alberto", "Ibarra", "Martinez"];
+
+        usuarios.forEach((usuario, index) =>  objUsuario['id_'+index] = usuario);
+        console.log(objUsuario);
+
 
     </script>
 
