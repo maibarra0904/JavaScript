@@ -759,8 +759,12 @@
         const objeto2 = {
             glob: "Contexto Objeto",
             apellido: "Ibarra",
+            segundo_apellido: "Martinez",
             dar_saludo: function(){
                 console.log("También para ti:"+this.apellido)
+            },
+            dar_otrosaludo: function(){
+                console.log("Otro para ti: "+this.segundo_apellido)
             }
             
         }
@@ -772,10 +776,33 @@
 
 
         const objeto3 = {
-            dar_saludo: objeto2.dar_saludo.bind(objeto2) //Bind permite tomar en un objeto las propiedades de otro
+            dar_saludo: objeto2.dar_saludo.bind(objeto2) //Bind permite ejecutar en un objeto un metodo de otro objeto
+        }
+
+        const objeto4 = {
+            dar_otrosaludo: objeto2.dar_otrosaludo.bind(objeto2)
         }
 
         objeto3.dar_saludo();
+
+        objeto2.segundo_apellido= "Pacheco"; //Cambiando una propiedad de un objeto
+        objeto4.dar_otrosaludo();
+
+
+        //JASON
+
+        const json = {
+            texto : "Ok",
+            numero: 35,
+            booleano: true
+        }
+        
+        const json2 = JSON.stringify(json.booleano);
+
+        console.log(json);
+        console.log(JSON.parse("[1,2]"));
+        console.log(JSON.parse(json2));
+        console.log(JSON.stringify(json.texto));
 
     </script>
 
