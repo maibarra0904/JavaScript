@@ -743,6 +743,40 @@
         console.log(objUsuario);
 
 
+        // Objeto this
+
+        console.log(this);
+        this.glob = "Contexto Global";
+
+        // Call, apply, bind
+
+        function dar_saludo(saludo,nombre){
+            console.log(saludo+", "+nombre+": Estoy en el "+this.glob);
+        }
+
+        dar_saludo("Hello","Mario");
+
+        const objeto2 = {
+            glob: "Contexto Objeto",
+            apellido: "Ibarra",
+            dar_saludo: function(){
+                console.log("También para ti:"+this.apellido)
+            }
+            
+        }
+        
+        dar_saludo.call(objeto2,"Hola","Alberto");
+        dar_saludo.call(this,"Hola","LuisMa");
+        dar_saludo.apply(objeto2,["Hi","Evelyn"]);
+        dar_saludo.apply(null,["Hi","Mabel"]);
+
+
+        const objeto3 = {
+            dar_saludo: objeto2.dar_saludo.bind(objeto2)
+        }
+
+        objeto3.dar_saludo();
+
     </script>
 
 </body>
