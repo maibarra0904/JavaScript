@@ -804,6 +804,16 @@
         console.log(JSON.parse(json2));
         console.log(JSON.stringify(json.texto));
 
+        // Algunos detalles
+        
+        console.log(window);
+        console.log(document);
+
+        let texto = "Esta es una prueba que tu navegador habla";
+        const hablar = (texto) => speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+
+        hablar(texto);
+
     </script>
 
 </body>
