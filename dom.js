@@ -57,3 +57,64 @@ $body.style.backgroundColor = varBlueColor;
 console.log(varRedColor);
 console.log(varYellowColor);
 
+const $card = document.querySelector(".card");
+
+console.log($card);
+
+$card.classList.add("rotate-45","opacity-80"); // Se puede agregar más de un atributo a la vez
+$card.classList.remove("rotate-45");
+$card.classList.toggle("rotate-45"); //toggle añade un atributo si no existe o lo elimina si existe
+//$card.classList.toggle("rotate-45");
+
+$card.classList.replace("rotate-45","rotate-135"); // Reemplaza un atributo por otro
+$card.classList.toggle("rotate-135");
+$card.classList.toggle("opacity-80");
+
+const $whatIsDOM = document.getElementById("que-es");
+
+let text = `
+    <p>
+    Este es un ejemplo de como sustituir texto de un atributo del HTML creado previamente
+    </p>
+
+`;
+
+$whatIsDOM.textContent = text; // Incluye el texto insertado sin considerar el código HTML
+$whatIsDOM.innerHTML = text; // Incluye el texto insertado considerando el código HTML manteniendo el atributo anterior
+$whatIsDOM.outerHTML = text; // Incluye el texto insertado considerando el código HTML eliminando el atributo anterior
+
+
+const $figure2 = document.createElement("figure"),
+    $img = document.createElement("img"),
+    $figcaption = document.createElement("figcaption"),
+    $figcaptionText = document.createTextNode("Animals"),
+    $cards = document.querySelector(".cards");
+
+$img.setAttribute("src","https://play-lh.googleusercontent.com/E_kpq1HGn5WU2P4S2yu0BwrPEHqiA-VBh2R7qoIjPFXdNvKA0A-8zi0RzRslUtEOnUvA");
+$img.setAttribute("alt","Animals");
+
+
+$figure2.classList.add("card");
+$figure2.appendChild($figcaptionText);
+$figure2.appendChild($img);
+$figure2.appendChild($figcaption);
+$cards.appendChild($figure2);
+
+const meses = [
+    "Enero",
+    "Febrero",
+]
+
+$ul = document.createElement("ul");
+$fragment = document.createDocumentFragment();
+
+meses.forEach(el => {   
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $fragment.appendChild($li);
+})
+
+document.write("<h3>Meses</h3>");
+$ul.appendChild($fragment);
+document.body.appendChild($ul);
+

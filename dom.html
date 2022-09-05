@@ -11,6 +11,35 @@
             --red-color: rgb(235, 40, 5);
             --blue-color: rgb(78, 216, 235);
         }
+        .card{
+            display: inline-block;
+            background-color: var(--blue-color);
+            color: var(--yellow-color);
+        }
+        .card figcaption {
+            padding: 1rem;
+        }
+
+        .cards {
+            border: thin solid var(--blue-color);
+            padding: 1rem;
+        }
+
+        .rotate-45 {    
+            transform: rotate(45deg)
+        }
+            
+        .rotate-135 {
+            transform: rotate(135deg)
+        }
+        .opacity-80{
+            opacity: .4;
+        }
+            
+        .sepia {
+            filter: sepia(1);
+        }
+            
     </style>
 </head>
 <body>
@@ -28,7 +57,7 @@
     <br>
     <h3>Manejo del DOM</h3>
 
-    <p id="Que-es">
+    <p id="que-es">
         Esto es un ejemplo del contenido
     </p>
 
