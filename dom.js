@@ -57,7 +57,7 @@ $body.style.backgroundColor = varBlueColor;
 console.log(varRedColor);
 console.log(varYellowColor);
 
-const $card = document.querySelector(".card");
+const $card = document.querySelector(".cards");
 
 console.log($card);
 
@@ -90,7 +90,7 @@ const $figure2 = document.createElement("figure"),
     $figcaptionText = document.createTextNode("Animals"),
     $cards = document.querySelector(".cards");
 
-$img.setAttribute("src","https://play-lh.googleusercontent.com/E_kpq1HGn5WU2P4S2yu0BwrPEHqiA-VBh2R7qoIjPFXdNvKA0A-8zi0RzRslUtEOnUvA");
+$img.setAttribute("src","https://placeimg.com/200/200/animals");
 $img.setAttribute("alt","Animals");
 
 
@@ -118,3 +118,27 @@ document.write("<h3>Meses</h3>");
 $ul.appendChild($fragment);
 document.body.appendChild($ul);
 
+const $cards2 = document.querySelector(".cards")
+    $template = document.getElementById("template-card").content,
+    $fragment2 = document.createDocumentFragment(),
+    cardContent = [
+        {
+            title: "Tecnologia",
+            img: "https://placeimg.com/200/200/tech",
+        },
+        {
+            title: "Animales",
+            img: "https://placeimg.com/200/200/animals",
+        }
+    ]
+
+cardContent.forEach(el => {
+    $template.querySelector("img").setAttribute("src", el.img);
+    $template.querySelector("img").setAttribute("alt", el.title);
+    $template.querySelector("figcaption").textContent = el.title;
+
+    let $clone = document.importNode($template,true);
+    $fragment2.appendChild($clone);
+
+})
+$cards2.appendChild($fragment2); 
