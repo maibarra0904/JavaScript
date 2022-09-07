@@ -127,8 +127,8 @@ const $cards2 = document.querySelector(".cards")
             img: "https://placeimg.com/200/200/tech",
         },
         {
-            title: "Animales",
-            img: "https://placeimg.com/200/200/animals",
+            title: "Arquitectura",
+            img: "https://placeimg.com/200/200/arch",
         }
     ]
 
@@ -142,3 +142,33 @@ cardContent.forEach(el => {
 
 })
 $cards2.appendChild($fragment2); 
+
+const cards3 = document.querySelector(".cards"),
+    $newCard = document.createElement("figure"),
+    $cloneCards = $cards.cloneNode(true);
+
+// Forma antigua de modificar elementos
+$newCard.innerHTML = `
+    <img src="https://placeimg.com/200/200/nature" alt="Nature">
+    <figcaption>Nature</figcaption>
+`;
+
+$newCard.classList.add("card");
+
+//$cards.replaceChild($newCard, $cards[0]);
+
+//$cards.removeChild($cards.lastElementChild);
+
+$cards.insertBefore($newCard, $cards.lastElementChild);
+
+document.body.appendChild($cloneCards);
+
+
+// Forma actualizada de modificar elementos
+
+$cards.insertAdjacentElement("afterbegin", $newCard);
+
+$cards.prepend($newCard);
+$cards.append($newCard);
+$cards.before($newCard);
+$cards.after($newCard);
