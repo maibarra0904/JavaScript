@@ -172,3 +172,45 @@ $cards.prepend($newCard);
 $cards.append($newCard);
 $cards.before($newCard);
 $cards.after($newCard);
+
+// EVENTOS
+
+function HolaMundo(){
+    alert("HolaMundo");
+    console.log(event);
+}
+
+function HolaDesconocido(nombre = "Mario Ibarra"){
+    alert("Hola: "+nombre);
+}
+
+const $eventoSemantico = document.getElementById("evento-semantico"),
+    $eventoMultiple = document.getElementById("evento-multiple");
+    $eventoRemover = document.getElementById("remover-evento");
+
+$eventoSemantico.onclick = HolaMundo;
+
+//Los eventos son removibles y se toma siempre el ultimo registrado (tienen la limitacion de ejecutar solo un evento)
+$eventoSemantico.onclick = function(){
+    alert("HolaMundo con manejador semantico");
+}
+
+//En los eventos multiples se pueden ejecutar varios eventos a la vez
+$eventoMultiple.addEventListener("click",HolaMundo);
+$eventoMultiple.addEventListener("click",function(e) {
+                                    alert("HolaMundo con manejador multiple");
+                                });
+$eventoMultiple.addEventListener("click",HolaDesconocido); //Si no se declara como funcion anonima los parametros no aparecen
+$eventoMultiple.addEventListener("click",() => {
+                                    HolaDesconocido();
+                                    HolaDesconocido("Alberto");
+                                });
+
+
+//Mecanismo para remover eventos
+const removerDobleClick = (e) => {
+    alert("Removiendo el evento tipo "+e.type);
+    $eventoRemover.removeEventListener("dblclick",removerDobleClick);
+};
+
+$eventoRemover.addEventListener("dblclick",removerDobleClick);
