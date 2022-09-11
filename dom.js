@@ -214,3 +214,28 @@ const removerDobleClick = (e) => {
 };
 
 $eventoRemover.addEventListener("dblclick",removerDobleClick);
+
+
+//FLujo de eventos
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+
+console.log($divsEventos);
+
+function flujoEventos(e){
+    console.log(`Hola te saluda ${this.className}, el click lo originó ${e.target.className}`);
+}
+
+function flujoEventos2(e){
+    console.log(`Hola te saluda ${this.className}, el doble click lo originó ${e.target.className}`);
+}
+
+$divsEventos.forEach(div => {
+    //Fase de burbuja: Ocurre de dentro hacia afuera
+    if(div.className === "uno"){
+        div.addEventListener("dblclick",flujoEventos2,false)
+    }
+
+    //Fase de captura: Ocurre de fuera hacia adentro
+    else {div.addEventListener("click",flujoEventos,{capture: true, once: true})};
+})
