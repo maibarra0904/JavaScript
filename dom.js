@@ -218,12 +218,14 @@ $eventoRemover.addEventListener("dblclick",removerDobleClick);
 
 //FLujo de eventos
 
-const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+const $divsEventos = document.querySelectorAll(".eventos-flujo div"),
+    $linkEventos = document.querySelector(".eventos-flujo2 a");
 
 console.log($divsEventos);
 
 function flujoEventos(e){
     console.log(`Hola te saluda ${this.className}, el click lo originó ${e.target.className}`);
+    e.stopPropagation(); //Detiene la propagacion y solo ejecuta la acción en la división implicada
 }
 
 function flujoEventos2(e){
@@ -233,9 +235,15 @@ function flujoEventos2(e){
 $divsEventos.forEach(div => {
     //Fase de burbuja: Ocurre de dentro hacia afuera
     if(div.className === "uno"){
-        div.addEventListener("dblclick",flujoEventos2,false)
+        div.addEventListener("dblclick",flujoEventos2,false) // el false es el parametro capture mostrado en la fase de captura
     }
 
     //Fase de captura: Ocurre de fuera hacia adentro
-    else {div.addEventListener("click",flujoEventos,{capture: true, once: true})};
+    else {div.addEventListener("click",flujoEventos,{capture: true, once: true})}; //once implica que la acción se ejecuta una sola vez
 })
+
+$linkEventos.addEventListener("click", (e)=> {
+    alert("Hola, te saluda Mario!");
+    e.preventDefault(); // Impide que la acción orginal se ejecute (el acceso al sitio web en este caso)
+});
+
