@@ -232,6 +232,7 @@ function flujoEventos2(e){
     console.log(`Hola te saluda ${this.className}, el doble click lo originó ${e.target.className}`);
 }
 
+/*
 $divsEventos.forEach(div => {
     //Fase de burbuja: Ocurre de dentro hacia afuera
     if(div.className === "uno"){
@@ -246,4 +247,16 @@ $linkEventos.addEventListener("click", (e)=> {
     alert("Hola, te saluda Mario!");
     e.preventDefault(); // Impide que la acción orginal se ejecute (el acceso al sitio web en este caso)
 });
+*/
 
+//Delegacion de Eventos
+
+document.addEventListener("click", (e) => {
+        if(e.target.matches(".eventos-flujo div")){
+        flujoEventos(e);
+        }
+        if(e.target.matches(".eventos-flujo2 a")){
+        flujoEventos2(e);
+        e.preventDefault();
+        }
+});
