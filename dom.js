@@ -260,3 +260,25 @@ document.addEventListener("click", (e) => {
         e.preventDefault();
         }
 });
+
+//Forma de obtener las propiedades en una ventana
+window.addEventListener("scroll", (e) => {
+    console.clear();
+    console.log("Evento Scroll y Load");
+    console.log("Movimiento de la barra en direccion X: "+window.scrollX);
+    console.log("Movimiento de la barra en direccion Y: "+window.scrollY);
+    console.log("Punto de inicio de ventana en X: "+window.screenX);
+    console.log("Punto de inicio de ventana en Y: "+window.screenY);
+    console.log(e);
+});
+
+
+//Alternativa mas efectiva para obtener las propiedades
+document.addEventListener("DOMContentLoaded", (e) => {
+    console.log("Evento DOMContentLoaded");
+    console.log("Movimiento de la barra en direccion X: "+window.scrollX);
+    console.log("Movimiento de la barra en direccion Y: "+window.scrollY);
+    console.log("Punto de inicio de ventana en X: "+window.screenX);
+    console.log("Punto de inicio de ventana en Y: "+window.screenY);
+    console.log(e);
+});
