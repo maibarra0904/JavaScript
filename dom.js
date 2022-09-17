@@ -272,7 +272,7 @@ window.addEventListener("scroll", (e) => {
     console.log(e);
 });
 
-
+/*
 //Alternativa mas efectiva para obtener las propiedades
 document.addEventListener("DOMContentLoaded", (e) => {
     console.log("Evento DOMContentLoaded");
@@ -282,3 +282,40 @@ document.addEventListener("DOMContentLoaded", (e) => {
     console.log("Punto de inicio de ventana en Y: "+window.screenY);
     console.log(e);
 });
+
+*/
+
+//console.clear();
+
+/*
+const salida = confirm("Confirmacion");
+const mensaje = prompt("Mensaje");
+console.log(salida);
+console.log(mensaje);
+*/
+
+const $OpenWindow = document.getElementById("abrir-ventana"),
+    $CloseWindow = document.getElementById("cerrar-ventana"),
+    $PrintButton = document.getElementById("imprimir-ventana");
+
+
+let ventana;
+
+$OpenWindow.addEventListener("click", (e) => {    
+    ventana = open("https://google.com/");
+});
+
+$CloseWindow.addEventListener("click", (e) => {
+    ventana.close();
+});
+
+$PrintButton.addEventListener("click", (e) => {
+    print();
+});
+
+console.log("***Objeto URL***");
+
+console.log(history.length);
+console.log(location.hostname);
+console.log(navigator.onLine);
+console.log(navigator.userAgent);
