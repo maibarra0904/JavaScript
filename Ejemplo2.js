@@ -2,7 +2,7 @@ import hamburgerMenu from "./Ejemplo1_Menu.js";
 
 import { digitalClock,alarm } from "./Ejemplo2_Reloj.js";
 
-import {shortcutsall,shortcutssimp} from "./Ejemplo3_Teclado.js";
+import {moveBall,shortcutsall,shortcutssimp} from "./Ejemplo3_Teclado.js";
 
 const d = document;
 
@@ -17,6 +17,7 @@ d.addEventListener("DOMContentLoaded", () => {
 d.addEventListener("keydown",(e)=>{
     shortcutsall(e);
     shortcutssimp(e);
+    moveBall(e,".ball",".stage");
 });
 
 
@@ -28,4 +29,5 @@ d.addEventListener("keydown",(e)=>{
 //Metodo del teclado cuando presionamos la tecla
 d.addEventListener("keypress",(e)=>{
     shortcutssimp(e);
+    
 });
