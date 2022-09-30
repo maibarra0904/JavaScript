@@ -4,6 +4,7 @@ import { digitalClock,alarm } from "./Ejemplo2_Reloj.js";
 
 import {moveBall,shortcutsall,shortcutssimp} from "./Ejemplo3_Teclado.js";
 import { Countdown } from "./Ejemplo4_Cuenta Regresiva.js";
+import darkTheme from "./Ejemplo5_Oscuro.js";
 
 
 
@@ -13,7 +14,8 @@ d.addEventListener("DOMContentLoaded", () => {
         hamburgerMenu(".panel-btn", ".panel",".menu a");
         digitalClock("#reloj","#activar-reloj","#desactivar-reloj");
         alarm("sonidos/alarma.mp3","#activar-alarma","#desactivar-alarma");
-        Countdown("Countdown","Sep 28, 2022 20:34:00","Felicidades");
+        Countdown("Countdown","Apr 09, 2023 00:00:00","Felicidades");
+        darkTheme(".dark-btn","dark-mode");
     });
 
 //Metodo del teclado cuando presionamos la tecla

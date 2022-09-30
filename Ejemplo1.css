@@ -8,6 +8,7 @@
     --main-modal-color: rgba(247,222,30,0.85);
     --second-modal-color: rgba(34,34,34,0.85);
     --container-width: 1200px;
+    --third-color: rgb(109, 205, 235);
 }
 
 html{
@@ -129,4 +130,32 @@ img{
     height: 4rem;
     border-radius: 50%;
     background-color: var(--main-color);
+}
+
+.dark-btn {
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    left: calc(4.25rem + 1vw);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: var(--third-color);
+    color: var(--second-color);
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-out;
+}
+
+.dark-btn:hover {
+    background-color: var(--second-color);
+    color: var(--main-color);
+}
+
+.dark-mode {
+    background-color: var(--second-color);
+    color: var(--main-color);
 }
