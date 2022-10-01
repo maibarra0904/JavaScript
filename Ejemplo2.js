@@ -15,8 +15,11 @@ d.addEventListener("DOMContentLoaded", () => {
         digitalClock("#reloj","#activar-reloj","#desactivar-reloj");
         alarm("sonidos/alarma.mp3","#activar-alarma","#desactivar-alarma");
         Countdown("Countdown","Apr 09, 2023 00:00:00","Felicidades");
-        darkTheme(".dark-btn","dark-mode");
+        
     });
+
+darkTheme(".dark-btn","dark-mode"); // Sale del DOMContentLoaded porque esta siendo utilizada tambien en la funcion Ejemplo5_Oscuro
+
 
 //Metodo del teclado cuando presionamos la tecla
 d.addEventListener("keydown",(e)=>{
