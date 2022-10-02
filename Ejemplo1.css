@@ -8,7 +8,7 @@
     --main-modal-color: rgba(247,222,30,0.85);
     --second-modal-color: rgba(34,34,34,0.85);
     --container-width: 1200px;
-    --third-color: rgb(109, 205, 235);
+    --third-color: rgb(201, 243, 250);
 }
 
 html{
@@ -32,6 +32,8 @@ body{
 img{
     max-width: 100%;
     height:auto;
+    align-items: "center";
+    margin-left: 48%;
 }
 
 .header{
@@ -158,4 +160,8 @@ img{
 .dark-mode {
     background-color: var(--second-color);
     color: var(--main-color);
+}
+
+.ahorcado {
+    background-color: var(--third-color);
 }
