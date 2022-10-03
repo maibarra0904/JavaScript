@@ -15,7 +15,7 @@
     <main>
         <section class="eventos-flujo2">
             <figure class="card">
-                <img src="/ahorcado/ahorcado0.png" name="imagen" alt="Any">
+                <img src="/ahorcado/ahorcado0.png" id="imagen" alt="Any">
             </figure>
         </section>
         <section id="Seccion1" class="section">
@@ -24,11 +24,14 @@
             <div id="Juego"></div>
             <div>
                 <p type="text" id="varText">Ingrese la palabra secreta:</p>
-                <input type="text" id="textBlock" placeholder="Palabra secreta"><br><br>
-                <button id="Registrar">Registrar</button>
+                <input type="text" id="textBlock" placeholder="Palabra secreta" maxlength="12"><br><br>
+                <p type="text" id="secretWord"></p>
+                <button id="Registrar">Registrar</button><br>
                 <p id="message2"></p>
             </div>
         </section>
+
+        
         
     </main>
 

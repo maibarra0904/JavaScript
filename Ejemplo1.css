@@ -165,3 +165,7 @@ img{
 .ahorcado {
     background-color: var(--third-color);
 }
+
+.message {
+    background-color: var(--second-color);
+}
