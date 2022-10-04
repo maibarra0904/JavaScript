@@ -24,7 +24,7 @@
             <div id="Juego"></div>
             <div>
                 <p type="text" id="varText">Ingrese la palabra secreta:</p>
-                <input type="text" id="textBlock" placeholder="Palabra secreta" maxlength="12"><br><br>
+                <input type="text" id="textBlock" placeholder="Palabra secreta" maxlength="12" style="text-transform:lowercase;" onkeyup="javascript:this.value=this.value.toLowerCase();"><br><br>
                 <p type="text" id="secretWord"></p>
                 <button id="Registrar">Registrar</button><br>
                 <p id="message2"></p>

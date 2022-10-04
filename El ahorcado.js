@@ -1,7 +1,8 @@
 const d = document;
 let contador = 0, $secret;
 const imageC = d.getElementById("imagen"), textBottom = d.getElementById("Registrar"),
-textBox = d.getElementById("textBlock"), varText = d.getElementById("varText"), secretText = d.getElementById("secretWord");
+textBox = d.getElementById("textBlock"), varText = d.getElementById("varText"), 
+secretText = d.getElementById("secretWord"), textoConteo = d.getElementById("message2");
 
 
 
@@ -25,6 +26,20 @@ d.addEventListener("click", (e) => {
     };
     
     
+});
+
+d.addEventListener("keydown", function(e) {
+    if (e.keyCode === 13) {
+        try {
+            clearInterval(countdownTempo);
+            intento();
+            conteo_regresivo();
+        } catch (e) {
+            clearInterval(countdownTempo);
+            accion_inicial();
+            conteo_regresivo();
+        }
+    }
 });
 
 let countdownTempo;
@@ -63,12 +78,13 @@ function conteo_regresivo(){
         regressiveTime = 10 - Math.round(efectiveTime/1000);        ;
         
         $countdown.innerHTML = `<h3> Le restan ${regressiveTime} segundos</h3>`;
+        textoConteo.style.color = 'red';
 
         if ( regressiveTime<1){
             clearInterval(countdownTempo);
             stopTime = CountdownDate.getTime();
             conteo_regresivo();
-            
+            intento();
         }
         
     },1000);
@@ -89,7 +105,7 @@ function intento() {
     
     
     if(deletreo.toLocaleString() === dinamicD.toLocaleString()) {
-        alert('Ganaste');
+        alert(`Ganaste la palabra secreta era: ${$secret}`);
         location.reload();
     }
 
@@ -114,7 +130,7 @@ function intento() {
                 break;
 
             case 5:
-                alert('Perdiste');
+                alert(`Perdiste, la palabra secreta era: ${$secret}`);
                 location.reload();
             default:
                 break;
@@ -129,3 +145,4 @@ function intento() {
     secretText.textContent = dinamicD;
     
 }
+
