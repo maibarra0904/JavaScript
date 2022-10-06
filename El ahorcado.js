@@ -57,10 +57,9 @@ function accion_inicial() {
         textBox.setAttribute("maxlength","1");
 
         for(let i = 0; i < deletreo.length; i++) {
-            dinamicD[i] = "x";
-        
+            dinamicD[i] = " X ";
         }
-        secretText.textContent = dinamicD;
+        secretText.textContent = dinamicD.join("  ");
 
     };
 }
@@ -142,7 +141,7 @@ function intento() {
     
     $num=0;
     textBox.value = "";
-    secretText.textContent = dinamicD;
+    secretText.textContent = dinamicD.join("  ");
     
 }
 
