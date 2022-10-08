@@ -12,10 +12,10 @@ export default function responsiveTester(form){
             //alert("Formulario enviado");
             tester = window.open($form.direccion.value, "tester", `innerWidth = ${$form.ancho.value}, innerHeight = ${$form.alto.value}`);
         };
+        console.log(navigator.userAgent);
     })
 
     d.addEventListener("click", e=>{
         if(e.target === $form.cerrar) {tester.close()};
     });
 }
-
