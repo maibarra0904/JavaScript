@@ -1,4 +1,5 @@
 const d = document,
+w= window,
 n = navigator,
 ua = n.userAgent;
 
@@ -61,3 +62,4 @@ export default function userDevicelnfo(id) {
     }
 
 }
+

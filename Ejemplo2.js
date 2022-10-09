@@ -8,6 +8,8 @@ import darkTheme from "./Ejemplo5_Oscuro.js";
 import responsiveMedia from "./Ejemplo6_Responsive.js";
 import responsiveTester from "./Ejemplo7.js";
 import userDevicelnfo from "./Ejemplo8.js";
+import networkStatus from "./Ejemplo8_NS.js";
+import webCam from "./Ejemplo9.js";
 
 
 
@@ -27,7 +29,8 @@ d.addEventListener("DOMContentLoaded", () => {
     });
 
 darkTheme(".dark-btn","dark-mode"); // Sale del DOMContentLoaded porque esta siendo utilizada tambien en la funcion Ejemplo5_Oscuro
-
+networkStatus();  // Identifica si el sitio esta o no en linea
+webCam("webcam"); // Detecta camara web
 
 //Metodo del teclado cuando presionamos la tecla
 d.addEventListener("keydown",(e)=>{
