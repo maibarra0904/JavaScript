@@ -1,4 +1,5 @@
 import getGeolocation from "./Ejemplo10.js";
+import slider from "./Ejemplo11.js";
 import hamburgerMenu from "./Ejemplo1_Menu.js";
 
 import { digitalClock,alarm } from "./Ejemplo2_Reloj.js";
@@ -33,6 +34,7 @@ darkTheme(".dark-btn","dark-mode"); // Sale del DOMContentLoaded porque esta sie
 networkStatus();  // Identifica si el sitio esta o no en linea
 //webCam("webcam"); // Detecta camara web - Ejemplo 10
 getGeolocation("geolocation"); //Verifica la ubicación
+slider();
 
 //Metodo del teclado cuando presionamos la tecla
 d.addEventListener("keydown",(e)=>{

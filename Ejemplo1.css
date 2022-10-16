@@ -16,6 +16,7 @@ html{
     font-family: var(--main-font);
     font-size: var(--font-size);
     scroll-behavior: smooth;
+    text-align: center;
 }
 
 *,
@@ -33,7 +34,7 @@ img{
     max-width: 100%;
     height:auto;
     align-items: "center";
-    margin-left: 48%;
+    /*margin-left: 48%*/;
 }
 
 .header{
@@ -185,4 +186,84 @@ img{
 }
 .offline{
     background-color: #b71c1c
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+
+.card {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    transition: all 0.3s ease-out;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card figcaption {
+    padding: 1rem;
+}
+
+.filter {
+    display: none;
+}
+
+.slider {
+    position: relative;
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.slider-slides {
+    position: relative;
+    height: 400px;
+}
+
+.slider-slide {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slider-slide img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    object-position: 50% 0%;
+}
+
+.slider-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider a{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: thin solid #000;
+    text-decoration: none;
+    background-color:#fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.slider-btns {
+    position: absolute;
+    width: 100%;
+    top:50%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 3rem;
+    font-weight: bold;
 }
