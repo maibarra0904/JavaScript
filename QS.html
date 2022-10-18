@@ -1,0 +1,57 @@
+<! ––« Comprendiendo diferencia entre querySelector y querySelectorAll«––>
+
+<!DOCTYPE html>
+<html>
+  
+<body style="text-align:center;">
+  
+    <h1 style="color:#006600">
+        GeeksforGeeks
+    </h1>
+    
+    <div>
+        <div class="test-btn">text</div>
+        <div class="test-btn">text</div>
+        <div class="test-btn">text</div>
+        <div class="test-btn">text</div> <br>
+    </div>
+      
+    <button onClick="qselector()">
+        querySelector
+    </button>
+  
+    <button onClick="qselectorall()">
+        querySelectorAll
+    </button>
+
+    <button onClick="deshacer()">
+        Deshacer
+    </button>
+  
+    <script>
+        function qselector() {
+            document.querySelector(".test-btn")
+                .style.color = "#14B76E";
+        }
+  
+        function qselectorall() {
+            var x = document
+                .querySelectorAll(".test-btn");
+  
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.color = "#ff0000";
+            }
+        } 
+
+        function deshacer() {
+            var x = document
+                .querySelectorAll(".test-btn");
+  
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.color = "#000000";
+            }
+        } 
+    </script>
+</body>
+  
+</html>
