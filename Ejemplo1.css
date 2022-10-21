@@ -269,3 +269,87 @@ img{
     font-size: 3rem;
     font-weight: bold;
 }
+
+/*  Validaciones del Formulario - Ejemplo 14*/
+
+.contact-form {
+    --form-ok-color: green;
+    --form-error-color: red;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.contact-form >*{
+    padding: 0.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+}
+
+.contact-form textarea {
+    resize: none; /*Impide que el tamano del textarea sea modificable*/
+}
+
+.contact-form legend,
+.contact-form-response {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Estandarizar el tamano y fuente de los inputs*/
+.contact-form input,
+.contact-form textarea {
+    font-size: 1rem;
+    font-family: sans-serif;
+    cursor: text;
+}
+
+/*Especificacion para el botón*/
+
+.contact-form input[type="submit"]{
+    width: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Especificacion cuando el contenido de un campo requerido es valido*/
+
+.contact-form [required]:valid {
+    border: thin solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid {
+    border: thin solid var(--form-error-color);
+}
+
+/*Estilo para mostrar u ocultar los mensajes de validacion*/
+.contact-form-error {
+    margin-top: -1rem;
+    font-size: 80%;
+    background-color: var(--form-error-color);
+    color: #fff;
+    transition: all 800ms ease;
+}
+
+.contact-form-error.is-active {
+    display: block;
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none {
+    display: none;
+}
+
+@keyframes show-message {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}

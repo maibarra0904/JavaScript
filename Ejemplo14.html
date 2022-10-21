@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" data-darks>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio del DOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="/Ejemplo1.css">
+
+</head>
+<body data-darks>
+    <header class="header">
+        <h1>Validaciones de Formulario</h1>
+    </header>
+    
+    
+
+    <main>
+        <section id="Seccion1" class="section">
+            <form class="contact-form">
+                <legend>Envíanos tus comentarios</legend>
+                <input type="text" name="name" placeholder="Escribe tu nombre" title="El nombre solo acepta letras y 
+                espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                <input type="email" name="email" placeholder="Escribe tu correo" title="Email incorrecto" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+                <input type="text" name="subject" placeholder="Asunto a tratar" title="El asunto es requerido" required>
+                <textarea name="comments" title="Tu comentario no debe exceder los 255 caracteres" cols="50" rows="5" placeholder="Escribe tus comentarios" data-pattern="^.{1,255}$" required></textarea>
+                <input type="submit" value="Enviar">
+
+                <div class="contact-form-loader">
+                    <img src="imagenes/loader.gif" alt="Cargando">
+                </div>
+
+                <div class="contact-form-response none">
+                    <p>Los datos han sido enviados</p>
+                </div>
+
+            </form>
+            <div id = "Countdown" style="color: white;"></div> 
+        </section> 
+        
+    </main>
+    <button class = "dark-btn">🌙</button>
+    
+        
+    
+
+    <script src="/Ejemplo2.js" type="module"></script>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 import getGeolocation from "./Ejemplo10.js";
 import slider from "./Ejemplo11.js";
 import scrollSpy from "./Ejemplo12.js";
+import smartVideo from "./Ejemplo13.js";
 import hamburgerMenu from "./Ejemplo1_Menu.js";
 
 import { digitalClock,alarm } from "./Ejemplo2_Reloj.js";
@@ -28,15 +29,17 @@ d.addEventListener("DOMContentLoaded", () => {
         rel="noopener">Ver Mapa</a>`, `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.797848403771!2d-78.47328118475889!3d-0.18354423547017534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d591ecf0995281%3A0xcf40cb5e608498b3!2sCentro%20del%20mundo%20(Ecuador)!5e0!3m2!1ses-419!2sec!4v1664912704324!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`);
         responsiveTester("Responsive tester");
         //userDevicelnfo("user-device"); // Ejemplo 8
-                
+        networkStatus();  // Identifica si el sitio esta o no en linea
+        //webCam("webcam"); // Detecta camara web - Ejemplo 10
+        getGeolocation("geolocation"); //Verifica la ubicación
+        slider();
+        scrollSpy();
+        smartVideo();
     });
 
 darkTheme(".dark-btn","dark-mode"); // Sale del DOMContentLoaded porque esta siendo utilizada tambien en la funcion Ejemplo5_Oscuro
-networkStatus();  // Identifica si el sitio esta o no en linea
-//webCam("webcam"); // Detecta camara web - Ejemplo 10
-getGeolocation("geolocation"); //Verifica la ubicación
-slider();
-scrollSpy();
+
+
 
 //Metodo del teclado cuando presionamos la tecla
 d.addEventListener("keydown",(e)=>{
