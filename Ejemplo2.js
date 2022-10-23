@@ -3,6 +3,7 @@ import slider from "./Ejemplo11.js";
 import scrollSpy from "./Ejemplo12.js";
 import smartVideo from "./Ejemplo13.js";
 import contactFormValidations from "./Ejemplo14.js";
+import speechReader from "./Ejemplo15.js";
 import hamburgerMenu from "./Ejemplo1_Menu.js";
 
 import { digitalClock,alarm } from "./Ejemplo2_Reloj.js";
@@ -40,7 +41,7 @@ d.addEventListener("DOMContentLoaded", () => {
     });
 
 darkTheme(".dark-btn","dark-mode"); // Sale del DOMContentLoaded porque esta siendo utilizada tambien en la funcion Ejemplo5_Oscuro
-
+speechReader(); // Ejemplo 15
 
 
 //Metodo del teclado cuando presionamos la tecla
