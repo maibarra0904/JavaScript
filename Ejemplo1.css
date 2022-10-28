@@ -61,6 +61,21 @@ img{
     text-align: center;
 }
 
+.section2 {
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-width);
+    min-height: 100vh;
+    text-align: left;
+}
+
+.section3 {
+    background-color: #000;
+}
+
 .panel {
     position: fixed;
     z-index: 998;

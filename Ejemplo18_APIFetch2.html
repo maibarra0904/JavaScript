@@ -5,22 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio del DOM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
     <link rel="stylesheet" href="/Ejemplo1.css">
 
 </head>
-<body data-darks>
+<body>
     <header class="header">
-        <h1>Lectura de texto en JSON con API Fetch</h1>
+        <h1>Filtro con API Fetch</h1>
     </header>
-       
+    
+    
 
     <main>
-        <section id="Seccion1" class="section">
-            
-            <ol id="fetch"></ol>
+        
+        
 
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <section id="Seccion1" >
+            <br><br><br><br><br>
+            <input type="text" placeholder="search a word" id="searchInput"/>
+
+            <ol id="users" class="section2">
+                
+            </ol>
+
+            <br><br><br><br><br><br><br><br><br><br>
 
             
 
@@ -33,7 +42,7 @@
         
     
 
-    <script src="/Ejemplo16-17.js" type="module"></script>
+    <script src="/Ejemplo18.js" type="module"></script>
 </body>
 
 </html>
