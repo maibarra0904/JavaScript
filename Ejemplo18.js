@@ -5,7 +5,8 @@ let $users = [];
 
 window.addEventListener('DOMContentLoaded', async ()=>{
     
-    userList.innerHTML = "<h1>Loading</h1>"
+    
+    userList.innerHTML = "<img src='imagenes/loader.gif'>"
     
     const data = await loadUsers ();
     $users = data.data
@@ -19,10 +20,10 @@ async function loadUsers() {
 }
 
 input.addEventListener("keyup" , e => {
-    const newUsers = $users.filter(user => `${user.firstname.toLowerCase()}${user.lastname.toLowerCase()}`
+    const $newUsers = $users.filter(user => `${user.firstname.toLowerCase()}${user.lastname.toLowerCase()}`
     .includes(input.value.toLowerCase()))
     
-    renderUsers(newUsers)
+    renderUsers($newUsers)
 })
 
 const createUserItems = users => users.map(user => `<li class="hover:bg-yellow-100 hover:cursor-pointer">
