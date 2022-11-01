@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio del DOM</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
     <link rel="stylesheet" href="/Ejemplo1.css">
 
 </head>
 <body>
     <header class="header">
-        <h1>Filtro con API Fetch Asincrono</h1>
+        <h1>AJAX con API axios</h1>
     </header>
     
     
@@ -24,8 +24,9 @@
         <section id="Seccion1" >
             <br><br><br><br><br>
             <input type="text" placeholder="search a word" id="searchInput"/>
-
-            <ol id="users" class="section2">
+            <br><br><br>
+            <img src='imagenes/loader.gif' class="loader">
+            <ol id="axios" class="section2">
                 
             </ol>
 
@@ -37,12 +38,12 @@
         </section> 
         
     </main>
-    <button class = "dark-btn">🌙</button>
+    
     
         
     
 
-    <script src="/Ejemplo18.js" type="module"></script>
+    <script src="/Ejemplo19.js" type="module"></script>
 </body>
 
 </html>
