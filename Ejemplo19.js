@@ -8,7 +8,7 @@ let json;
     
     const $loader = document.querySelector(".loader");
 
-    axios.get("https://dummyjson.com/users")
+    axios.get("data/fakeData.json") //Se puede leer el archivo JSON guardado en el equipo
     .then(
         (res) => {
 

@@ -27,7 +27,7 @@ input.addEventListener("keyup" , e => {
 })
 
 const createUserItems = users => users.map(user => `<li class="hover:bg-yellow-100 hover:cursor-pointer">
-${user.firstname} ${user.lastname}</1i>`).join(" ")
+${user.firstname} ${user.lastname}</li>`).join(" ")
 
 
 function renderUsers (users) {
