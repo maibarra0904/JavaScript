@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" data-darks>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio del DOM</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="/Ejemplo1.css">
+
+</head>
+<body>
+    <header class="header">
+        <h1>Crud API REST Ajax</h1>
+    </header>
+    
+    
+
+    <main>
+        
+        
+
+        
+        
+    </main>
+    <section class="crud" >
+            
+        <article>
+            <h2 class = "crud-title"> Agregar Santo </h2>
+            <form class="crud-form">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <br><br>
+            <input type="text" name="constelacion" placeholder="Constelacion" required>
+            <br><br>
+            <input type="submit" value="Enviar">
+            <input type="hidden" name="id">
+            </form>
+        </article>
+        
+        <article>
+            <h2> Ver Santos </h2>
+            <table class="crud-table" align="center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Constelacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            
+        </article>
+        
+        <template id="crud-template">
+            <tr>
+                <td class="name"></td>
+                <td class="constellation"></td>
+                <td>
+                    <button class="edit">Editar</button>
+                    <button class="delete">Eliminar</button>
+                </td>
+            </tr>
+        </template>
+
+    </section> 
+    
+        
+    
+
+    <script src="/Ejemplo21.js" type="module"></script>
+</body>
+
+</html>

@@ -11,9 +11,8 @@ let json;
     
     async function getData(){
         try {
-            let res = await axios.get("https://dummyjson.com/users"), //Se puede leer el archivo JSON a través de URL
-            json = await res.data.users;
-
+            let res = await axios.get("https://dummyjson.com/users"), 
+            json = await res.data.users; //Se puede leer el archivo JSON a través de URL
             json.forEach((el) => {
                 const $li = document.createElement("li");
                 $li.innerHTML = `${el.firstName} ${el.lastName}`
@@ -21,6 +20,7 @@ let json;
             });
 
             $axiosAsync.appendChild($li);
+            $loader.classList.add("none");
 
         } catch (error) {
             let message = error.response.statusText || "Ocurrió un error";
