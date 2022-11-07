@@ -1,3 +1,6 @@
+//Código a digitar en la terminal para abrir el servidor json
+//json-server -w -p 3500 data/db.json
+
 const d = document,
 $table = d.querySelector(".crud-table"),
 $form = d.querySelector(".crud-form"),
@@ -105,7 +108,7 @@ d.addEventListener("click", e => {
     }
 
     if(e.target.matches(".delete")){
-        let isDelete = confirm(`Estas seguro de eliminar el Santo ${e.target.dataset.nombre}`);
+        let isDelete = confirm(`Estas seguro de eliminar el Santo ${e.target.dataset.id}`);
 
         if(isDelete){
             ajax({
