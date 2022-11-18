@@ -33,7 +33,7 @@ d.addEventListener("DOMContentLoaded", () => {
         //userDevicelnfo("user-device"); // Ejemplo 8
         networkStatus();  // Identifica si el sitio esta o no en linea
         //webCam("webcam"); // Detecta camara web - Ejemplo 9
-        //getGeolocation("geolocation"); //Verifica la ubicación - Ejemplo 10
+        getGeolocation("geolocation"); //Verifica la ubicación - Ejemplo 10
         slider();
         scrollSpy();
         smartVideo();
