@@ -32,3 +32,44 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.loader {
+    margin: 1rem auto;
+    display: block;
+    width: 10rem;
+    height: 10rem;
+}
+
+.error {
+    padding: 1rem;
+    font-size: 150%;
+    font-weight: bold;
+    text-align: center;
+    color: azure;
+    background-color: red;
+}
+
+.form-search {
+    margin: auto;
+    text-align: center;
+}
+
+.form-search input {
+    display: block;
+    margin: auto;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.header {
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    background-color: azure;
+}
+
+.header > * {
+    margin: 1rem auto;
+}
