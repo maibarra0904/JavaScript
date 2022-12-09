@@ -1,8 +1,7 @@
-import api from "./helpers/wp_api.js"
-import { ajax } from "./helpers/ajax.js";
 import { Loader } from "./components/Loader.js";
 import { Header } from "./components/Header.js";
-import { Menu } from "./components/Menu.js";
+import { Posts } from "./components/Posts.js";
+import { Router } from "./components/Router.js";
 
 export function App(){
     /*
@@ -27,10 +26,12 @@ export function App(){
     $root = d.getElementById("root");
 
 
-    //$root.appendChild(Menu());
+    $root.innerHTML = null;
     $root.appendChild(Header());
     $root.appendChild(Loader());
-
+    $root.appendChild(Posts());
+    
+    Router();
     
 }
 
