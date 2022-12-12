@@ -18,7 +18,7 @@ export async function Router() {
         await ajax ({
             url: api.POSTS,
             cbSuccess: (main) => {
-                console.log(main);
+                //console.log(main);
     
                 let html = "";
     
@@ -36,6 +36,15 @@ export async function Router() {
     } else {
         $main.innerHTML = `<h2>Aqui cargara el elemento del post previamente seleccionado</h2>`;
         //d.querySelector(".loader").style.display = "none";
+        await ajax ({
+            url: `${api.POST}/${localStorage.getItem("wpPostId")}`,
+            cbSuccess: (post) => {
+                console.log(post);
+                
+                $main.innerHTML = Post(post);
+                
+            }
+        })
     }
     
     d.querySelector(".loader").style.display = "none";
