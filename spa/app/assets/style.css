@@ -49,6 +49,14 @@ img {
     background-color: red;
 }
 
+.error mark {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    color: blanchedalmond;
+    background-color: blue;
+}
+
 .form-search {
     margin: auto;
     text-align: center;
