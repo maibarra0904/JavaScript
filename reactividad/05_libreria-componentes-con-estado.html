@@ -28,10 +28,15 @@
                 if(props.todoList.length < 1) {
                     return `<p><em>Lista sin tareas por hacer.</em></p>`
                 }
-    
-                let todos = props.todoList.map(item => `<li>${item}</li>`).join("");
-    
-                return todos;
+                //Otra forma de codificar
+
+                //let todos = props.todoList.map(item => `<li>${item}</li>`).join("");
+                //return todos;
+
+                let tareas = [];
+                props.todoList.forEach(todo => tareas.push(`<li>${todo}</li>`));
+
+                return tareas.join(""); 
             }
         });
 
