@@ -151,27 +151,28 @@ img{
 }
 
 .dark-btn {
-    position: fixed;
+    position: fixed; /*Ubicación del botón: Inferior Izquierda*/
     z-index: 999;
-    bottom: 1vh;
-    left: calc(4.25rem + 1vw);
+    bottom: 10px; /*Espacio desde el borde inferior*/
+    left: calc(4.25rem + 1vw); /*Espacio desde el borde izquierdo*/
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 2rem; /*Tamaño del contenido del botón, en este caso del ícono*/
     font-weight: bold;
     background-color: var(--third-color);
-    color: var(--second-color);
-    cursor: pointer;
+    color: var(--second-color); /*Color del objeto*/
+    cursor: pointer; /*Ícono que se muestra al pasar el puntero por el botón*/
     outline: 0;
     border: 0;
-    transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; /*Tiempo y forma de transicion del botón cuando carga el html*/
 }
-
+/*hover es el estilo temporal cuando se pasa el puntero por encima del objeto en este caso el botón*/
 .dark-btn:hover {
     background-color: var(--second-color);
     color: var(--main-color);
 }
+
 
 .dark-mode {
     background-color: var(--second-color);
