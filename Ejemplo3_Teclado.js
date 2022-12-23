@@ -6,20 +6,18 @@ y=0;
 export function moveBall(e,ball,stage){
     const $ball = d.querySelector(ball),
     $stage = d.querySelector(stage),
-    limitsBall = $ball.getBoundingClientRect(),
-    limitsStage = $stage.getBoundingClientRect();
+    limitsBall = $ball.getBoundingClientRect(), // Se llaman a los limites del tamaño de la bola
+    limitsStage = $stage.getBoundingClientRect();// Se llaman a los limites del tamaño del contenedor de la bola
 
-    
-
-
+    //Se programa las llamadas según la tecla presionada
     switch (e.keyCode) {
-        case 37:
-            if (limitsBall.left > limitsStage.left){
-                e.preventDefault();
-                x--;
+        case 37: //Corresponde a la direccional de la izquierda
+            if (limitsBall.left > limitsStage.left){    //Se configura para que la bola no pueda salirse del margen izquierdo del contenedor
+                e.preventDefault(); // Se anula el comportamiento por default de la tecla
+                x--; //Mueve la bola una unidad de 
             };
             break;
-        case 38:
+        case 38: //Corresponde a la direccional de arriba
             
             if (limitsBall.top > limitsStage.top) {
                 e.preventDefault();
@@ -46,9 +44,10 @@ export function moveBall(e,ball,stage){
 
         
     };
-    $ball.style.transform = `translate(${x*10}px,${y*10}px)`;
+    $ball.style.transform = `translate(${x*10}px,${y*10}px)`; // Se define la cantidad de pixeles que se moverá la bola
 }
 
+//Se programa eventos de teclado al presional la tecla Alt+ otra tecla.
 export function shortcutsall(e) {
     console.log(e.type);
     console.log(e.key);
@@ -70,4 +69,4 @@ export function shortcutssimp(e) {
     console.log(e.altKey);
     console.log(e.ctrlKey);
     console.log(e.shiftKey);
-}
+}   

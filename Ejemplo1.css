@@ -137,17 +137,17 @@ img{
 }
 
 .stage {
-    display: flex;
-    min-height: 50vh;
-    background-color: var(--second-color);
+    display: flex; /*Lo convierte en un contenedor flexible al tamaño*/
+    min-height: 50vh; /*Alto del contenedor*/
+    background-color: var(--second-color); /*Se le da el color de fondo al contenedor*/
 }
 
 .ball {
-    margin: auto;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background-color: var(--main-color);
+    margin: auto; /*Auto marginación*/
+    width: 50px; /*Ancho del objeto*/
+    height: 50px; /*Alto del objeto*/
+    border-radius: 50%; /*Permite darle el borde redondeado al objeto (lo convierte bola; "auto" es recto)*/
+    background-color: var(--main-color); /*Se le da el color al objeto*/
 }
 
 .dark-btn {

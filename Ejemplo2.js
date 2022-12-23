@@ -45,13 +45,12 @@ speechReader(); // Ejemplo 15
 
 
 //Metodo del teclado cuando presionamos la tecla
-/*
+
 d.addEventListener("keydown",(e)=>{
     shortcutsall(e);
     shortcutssimp(e);
     moveBall(e,".ball",".stage");
 });
-*/
 
 
 //Metodo del teclado cuando soltamos la tecla
