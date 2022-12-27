@@ -233,13 +233,14 @@ img{
 .slider {
     position: relative;
     width: 80%;
+    height: 100%;
     margin: 1rem auto;
     text-align: center;
 }
 
 .slider-slides {
     position: relative;
-    height: 400px;
+    height: 650px; /*Alto de las imagenes (slides)*/
 }
 
 .slider-slide {
@@ -249,7 +250,7 @@ img{
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 1s ease; /*Transición entre slides*/
 }
 
 .slider-slide img {
@@ -259,11 +260,13 @@ img{
     object-position: 50% 0%;
 }
 
+/*Forma de cómo presentar el slide activo*/
 .slider-slide.active {
     opacity: 1;
     visibility: visible;
 }
 
+/*Configuración de estilos de botones next y previous*/
 .slider a{
     display: block;
     width: 4rem;
@@ -271,8 +274,8 @@ img{
     border-radius: 50%;
     border: thin solid #000;
     text-decoration: none;
-    background-color:#fff;
-    color: #000;
+    background-color:rgb(218, 187, 13);
+    color: rgb(6, 146, 18);
     transition: all 0.3s ease;
 }
 
