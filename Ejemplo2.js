@@ -35,7 +35,7 @@ d.addEventListener("DOMContentLoaded", () => {
         //webCam("webcam"); // Detecta camara web - Ejemplo 9
         getGeolocation("geolocation"); //Verifica la ubicación - Ejemplo 10
         slider();
-        scrollSpy();
+        //scrollSpy();
         smartVideo();
         //contactFormValidations();
     });
