@@ -319,3 +319,5 @@ console.log(history.length);
 console.log(location.hostname);
 console.log(navigator.onLine);
 console.log(navigator.userAgent);
+
+console.log(Boolean(10 > 9));
