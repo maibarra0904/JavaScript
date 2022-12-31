@@ -1,4 +1,5 @@
 const $axiosAsync = document.getElementById("axios-async"),
+    input = document.querySelector("#searchInput"),
     $fragment = document.createDocumentFragment();
 
 let json;
@@ -7,28 +8,24 @@ let json;
     
     const $loader = document.querySelector(".loader");
 
-    
-    
-    async function getData(){
-        try {
-            let res = await axios.get("https://dummyjson.com/users"), 
-            json = await res.data.users; //Se puede leer el archivo JSON a través de URL
-            json.forEach((el) => {
-                const $li = document.createElement("li");
-                $li.innerHTML = `${el.firstName} ${el.lastName}`
-                $fragment.appendChild($li);
-            });
+    const sendGetRequest = async () => { //Se crea la función asíncrona
+    try {
+        const res = await axios.get('https://dummyjson.com/users'); //Se hace la petición Axios
+        console.log(res);
+        const createUserItems = user => user.map(user => `<li class="hover:bg-yellow-100 hover:cursor-pointer">
+            ${user.firstName} ${user.lastName}</li>`).join(" ") //Se crea una función que mapea una lista de formato Json a html
+        json = res.data.users; //Se llaman los datos de la respuesta de propiedad data.users
+        $axiosAsync.innerHTML = createUserItems(json); //Se inserta la lista anterior en html
+        $loader.classList.add("none");
+        
 
-            $axiosAsync.appendChild($li);
-            $loader.classList.add("none");
-
-        } catch (error) {
-            let message = error.response.statusText || "Ocurrió un error";
-            $axiosAsync.innerHTML = `Error ${error.response.status}: ${message}`
-        } finally {
-
-        }
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
     }
+    }
+    
+    sendGetRequest();
 
 }
 
@@ -47,5 +44,5 @@ input.addEventListener("keyup" , (e) => {
 function renderUsers (users) {
     
     const createUserItems = users => users.map(user => `<li>${user.firstName} ${user.lastName}</li>`).join(" ")
-    $axios.innerHTML = createUserItems(users);
+    $axiosAsync.innerHTML = createUserItems(users);
 }
