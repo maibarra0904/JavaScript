@@ -31,7 +31,7 @@ export default function speechReader(){
 
     d.addEventListener("change", e => {
         if(e.target === $speechSelect) { //Si hay alguna voz elegida en la lista desplegable
-            speechMessage.voice = voices.find(voice => voice.name === e.target.value); //Configura el mensaje a hablar con esa voz
+            speechMessage.voice = voices.find(voice => voice.name === e.target.value); //Configura el mensaje a leer con esa voz
         }
     });
 
