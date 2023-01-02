@@ -26,19 +26,9 @@
       "constelacion": "Andromeda"
     },
     {
-      "id": 5,
-      "nombre": "Ikki",
-      "constelacion": "Fenix"
-    },
-    {
-      "nombre": "Mario",
-      "constelacion": "asd",
-      "id": 6
-    },
-    {
-      "nombre": "AlbertoI",
-      "constelacion": "mmm",
-      "id": 7
+      "nombre": "Ikki2",
+      "constelacion": "Fenix",
+      "id": 5
     }
   ],
   "dioses": [

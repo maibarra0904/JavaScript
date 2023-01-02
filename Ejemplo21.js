@@ -1,6 +1,6 @@
-//Código a digitar en la terminal para abrir el servidor json
+//Código a digitar en la terminal para abrir el servidor local json
 //json-server -w -p 3500 data/db.json
-//Dirección para revisar la data del servidor
+//Servidor en la nube de la API Json una vez que los cambios son guardados y subidos
 //https://my-json-server.typicode.com/maibarra0904/JavaScript/
 
 const d = document,
@@ -8,7 +8,8 @@ $table = d.querySelector(".crud-table"), //Llamar a la tabla crud
 $form = d.querySelector(".crud-form"), //Llamar al formulario
 $title = d.querySelector(".crud-title"), //Llamar el título
 $template = d.getElementById("crud-template").content, //Llamar el contenido del template
-$fragment = d.createDocumentFragment(); //Crear un nuevo fragmento
+$fragment = d.createDocumentFragment(),
+server = "https://my-json-server.typicode.com/maibarra0904/JavaScript/santos"; //Crear un nuevo fragmento
 
 //Se crea la función para generar la petición AJAX
 const ajax = ({url, method, success, error, data}) => {
@@ -83,6 +84,7 @@ d.addEventListener("submit", e => {
                     constelacion: e.target.constelacion.value //Y la constelación
                 }
             })
+            
         } else {
             //Update - PUT
             ajax({
@@ -113,7 +115,7 @@ d.addEventListener("click", e => {
 
     if(e.target.matches(".delete")){ //Si coincide con el botón borrar
         let isDelete = confirm(`Estas seguro de eliminar el Santo ${e.target.dataset.id}`); //Muestra una alerta para confirmar el borrado del registro
-
+        console.log(`${server}/santos/${e.target.dataset.id}`);
         if(isDelete){ //Si se confirma el borrado del registro
             ajax({
                 url: `http://localhost:3000/santos/${e.target.dataset.id}`, //toma el registro con esa id
