@@ -1,0 +1,10 @@
+paises {Codi: string :="4", Nom: string:= "4"} := {
+SELECT *
+FROM READ("https://analisi.transparenciacatalunya.cat/api/views/u6te-2guv/rows.csv") l
+WHERE
+    l.Codi like Codi AND
+    l.Nom like Nom
+LIMIT 20
+};
+
+paises();
