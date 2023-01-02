@@ -1,8 +1,8 @@
 {
   "Comentarios": [
-      {
-        "Comentario 1":"Este es el archivo principal donde se pueden colocar los objetos JSON"
-      }
+    {
+      "Comentario 1": "Este es el archivo principal donde se pueden colocar los objetos JSON"
+    }
   ],
   "santos": [
     {
@@ -36,14 +36,9 @@
       "id": 6
     },
     {
-      "nombre": "Alberto",
+      "nombre": "AlbertoI",
       "constelacion": "mmm",
       "id": 7
-    },
-    {
-      "nombre": "sda",
-      "constelacion": "Ejemplo",
-      "id": 8
     }
   ],
   "dioses": [

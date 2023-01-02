@@ -1,5 +1,7 @@
 //Código a digitar en la terminal para abrir el servidor json
 //json-server -w -p 3500 data/db.json
+//Dirección para revisar la data del servidor
+//https://my-json-server.typicode.com/maibarra0904/JavaScript/
 
 const d = document,
 $table = d.querySelector(".crud-table"), //Llamar a la tabla crud
@@ -34,7 +36,7 @@ const ajax = ({url, method, success, error, data}) => {
 const getAll = () => {
     ajax({
         method: "GET",
-        url: "http://localhost:3500/santos", //Debe estar activo el servidor para ejecutar esto
+        url: "http://localhost:3000/santos", //Debe estar activo el servidor para ejecutar esto
         success: (res) => {
             res.forEach(el => { //Por cada elemento de la base de datos
                 $template.querySelector(".name").textContent = el.nombre; //Agrega el nombre
@@ -72,7 +74,7 @@ d.addEventListener("submit", e => {
         if(!e.target.id.value){ //Si el registro no contiene id
             //Create - POST
             ajax({
-                url: "http://localhost:3500/santos", //Selecciona la API
+                url: "http://localhost:3000/santos", //Selecciona la API
                 method: "POST", //Crea un nuevo registro
                 success: (res) => location.reload(),
                 error: () => $form.insertAdjacentHTML("afterend",`<p><b>${err}</b></p>`), //Se inserta en el formulario un nuevo elemento
@@ -84,7 +86,7 @@ d.addEventListener("submit", e => {
         } else {
             //Update - PUT
             ajax({
-                url: `http://localhost:3500/santos/${e.target.id.value}`, //Se ubica el registro a través de la id
+                url: `http://localhost:3000/santos/${e.target.id.value}`, //Se ubica el registro a través de la id
                 method: "PUT", //Sirve para modificar el registro
                 success: (res) => location.reload(),
                 error: () => $form.insertAdjacentHTML("afterend",`<p><b>${err}</b></p>`),
@@ -114,7 +116,7 @@ d.addEventListener("click", e => {
 
         if(isDelete){ //Si se confirma el borrado del registro
             ajax({
-                url: `http://localhost:3500/santos/${e.target.dataset.id}`, //toma el registro con esa id
+                url: `http://localhost:3000/santos/${e.target.dataset.id}`, //toma el registro con esa id
                 method: "DELETE", //Bórralo
                 success: (res) => location.reload(),
                 error: () => alert(err),
