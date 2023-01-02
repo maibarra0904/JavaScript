@@ -1,4 +1,4 @@
 # yaml-language-server: $schema=https://cdn.raw-labs.com/raw-site-schemaV0.9.json
 raw: 0.9
-publishUrl: root@localhost:3306
+publishUrl: https://dev-858nn029oigjzga.api.raw-labs.com/
 enabled: true
