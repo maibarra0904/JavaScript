@@ -1,0 +1,6 @@
+//
+// Hello world Example
+//
+// Returns a simple string.
+
+main() = "Hello World!"

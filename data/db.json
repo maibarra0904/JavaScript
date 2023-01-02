@@ -24,6 +24,11 @@
       "id": 5,
       "nombre": "Ikki",
       "constelacion": "Fenix"
+    },
+    {
+      "nombre": "Mario",
+      "constelacion": "Ejemplo",
+      "id": 6
     }
   ],
   "dioses": [

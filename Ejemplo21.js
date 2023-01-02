@@ -2,11 +2,11 @@
 //json-server -w -p 3500 data/db.json
 
 const d = document,
-$table = d.querySelector(".crud-table"),
-$form = d.querySelector(".crud-form"),
-$title = d.querySelector(".crud-title"),
-$template = d.getElementById("crud-template").content,
-$fragment = d.createDocumentFragment();
+$table = d.querySelector(".crud-table"), //Llamar a la tabla crud
+$form = d.querySelector(".crud-form"), //Llamar al formulario
+$title = d.querySelector(".crud-title"), //Llamar el título
+$template = d.getElementById("crud-template").content, //Llamar el contenido del template
+$fragment = d.createDocumentFragment(); //Crear un nuevo fragmento
 
 const ajax = (options) => {
     let {url, method, success, error, data} = options;
