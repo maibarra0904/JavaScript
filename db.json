@@ -1,4 +1,9 @@
 {
+  "Comentarios": [
+      {
+        "Comentario 1":"Este es el archivo principal donde se pueden colocar los objetos JSON"
+      }
+  ],
   "santos": [
     {
       "nombre": "Seiya",
