@@ -10,7 +10,7 @@ $fragment = d.createDocumentFragment();
 //Función para importar la data al html
 const getAll = async() => {
     try{
-        let res = await fetch("http://localhost:3500/santos"), //Llamada al servidor local
+        let res = await fetch("http://localhost:3000/santos"), //Llamada al servidor local
         json = await res.json(); //Convertir la respuesta a Json
 
         if(!res.ok) throw {status: res.status, statusText: res.statusText}; //Verificación de la respuesta
@@ -57,7 +57,7 @@ d.addEventListener("submit", async e => {
                         constelacion: e.target.constelacion.value
                     })
                 }
-                res = await fetch("http://localhost:3500/santos", options), //Llama al la data considerando la creación del nuevo registro
+                res = await fetch("http://localhost:3000/santos", options), //Llama al la data considerando la creación del nuevo registro
                 json = await res.json(); //Convierte la respuesta anterior a Json
                 
                 if(!res.ok) throw {status: res.status, statusText: res.statusText};
@@ -80,7 +80,7 @@ d.addEventListener("submit", async e => {
                         constelacion: e.target.constelacion.value
                     })
                 }
-                res = await fetch(`http://localhost:3500/santos/${e.target.id.value}`, options), //Modifica el registro cuya id coincide con la base de datos existente
+                res = await fetch(`http://localhost:3000/santos/${e.target.id.value}`, options), //Modifica el registro cuya id coincide con la base de datos existente
                 json = await res.json(); //Convierte la respuesta a Json
                 
                 if(!res.ok) throw {status: res.status, statusText: res.statusText};
@@ -116,7 +116,7 @@ d.addEventListener("click", async e => {
                         "Content-type":"application/json; charset=utf-8"
                     }
                 }
-                res = await fetch(`http://localhost:3500/santos/${e.target.dataset.id}`, options), //Ejecuta el borrado del registro con el id específico
+                res = await fetch(`http://localhost:3000/santos/${e.target.dataset.id}`, options), //Ejecuta el borrado del registro con el id específico
                 json = await res.json(); //Convierte la respuesta a Json
                 
                 if(!res.ok) throw {status: res.status, statusText: res.statusText};

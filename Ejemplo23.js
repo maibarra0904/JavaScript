@@ -7,7 +7,7 @@ $fragment = d.createDocumentFragment();
 
 const getAll = async () => {
     try {
-        let res = await axios.get("http://localhost:3500/santos"),
+        let res = await axios.get("http://localhost:3000/santos"),
         json = await res.data;
 
         json.forEach(el => {
@@ -48,7 +48,7 @@ d.addEventListener("submit", async e => {
                         constelacion: e.target.constelacion.value
                     })
                 }
-                res = await fetch("http://localhost:3500/santos", options),
+                res = await fetch("http://localhost:3000/santos", options),
                 json = await res.json();
                 
                 if(!res.ok) throw {status: res.status, statusText: res.statusText};
@@ -71,7 +71,7 @@ d.addEventListener("submit", async e => {
                         constelacion: e.target.constelacion.value
                     })
                 }
-                res = await fetch(`http://localhost:3500/santos/${e.target.id.value}`, options),
+                res = await fetch(`http://localhost:3000/santos/${e.target.id.value}`, options),
                 json = await res.json();
                 
                 if(!res.ok) throw {status: res.status, statusText: res.statusText};
@@ -106,7 +106,7 @@ d.addEventListener("click", async e => {
                         "Content-type":"application/json; charset=utf-8"
                     }
                 }
-                res = await fetch(`http://localhost:3500/santos/${e.target.dataset.id}`, options),
+                res = await fetch(`http://localhost:3000/santos/${e.target.dataset.id}`, options),
                 json = await res.json();
                 
                 if(!res.ok) throw {status: res.status, statusText: res.statusText};

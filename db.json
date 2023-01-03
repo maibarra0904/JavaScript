@@ -32,8 +32,13 @@
     },
     {
       "nombre": "Mario",
-      "constelacion": "sss",
+      "constelacion": "Ejemplo",
       "id": 6
+    },
+    {
+      "nombre": "sda",
+      "constelacion": "sss",
+      "id": 7
     }
   ],
   "dioses": [
