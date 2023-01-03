@@ -1,5 +1,6 @@
 //Código a digitar en la terminal para abrir el servidor local json
 //json-server -w -p 3500 data/db.json
+//json-server --watch db.json
 //Servidor en la nube de la API Json una vez que los cambios son guardados y subidos
 //https://my-json-server.typicode.com/maibarra0904/JavaScript/
 
