@@ -2,8 +2,9 @@ const d =  document,
 $main = d.querySelector("main"), //Llamado a la sección donde aparecen las figuras de pokemones
 $links = d.querySelector(".links"); //Llamado al área donde aparecen los botones next y prev
 
-let pokeAPI = "https://pokeapi.co/api/v2/pokemon/"; //Llamada a la API de pokemon la misma API
-//llama a los 20 primeros en su propiedad "next".
+let maxPage = 10,//Cantidad de Pokemones a presentar en cada página
+pokeAPI = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${maxPage}`; //Llamada a la API de pokemon 
+//Nota.- La misma API llama una cantidad por default de 20 pokemones por página.
 
 //Función para cargar las figuras y nombres de los pokemones con los botones next y previous
 //tomando como parámetro la API
@@ -20,7 +21,7 @@ async function loadPokemons(url){
         $prevLink,
         $nextLink;
 
-        //console.log(json);
+        console.log(json);
         //Se verifica que haya una respuesta de la API antes de continuar
         if(!res.ok) throw {status: res.status, statusText: res.statusText}
 
