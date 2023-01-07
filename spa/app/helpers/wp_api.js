@@ -10,7 +10,7 @@ SEARCH = `${API_WP}/search?_embed&per_page=${PER_PAGE}&search=`;
 
 let page = 1;
 
-
+//Se exportan los diferentes URLS de la API requeridos para hacer las peticiones Fetch
 export default {
     NAME,DOMAIN,SITE,API_WP,PER_PAGE,POSTS,POST,CATEGORIES,SEARCH,page
 }

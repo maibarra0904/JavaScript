@@ -118,6 +118,10 @@ d.addEventListener("DOMContentLoaded", e=> {
 //Programación para ir cargando los sitios de a poco
 w.addEventListener("scroll", e => {
     const {scrollTop,clientHeight,scrollHeight} = d.documentElement;
+    console.log(scrollTop,clientHeight,scrollHeight);
+    //scrollTop == scrollY : Distancia desde el inicio del navegador hasta el scroll (0 si está arriba)
+    //clientHeigth == innerHeight : Altura del área del navegador
+    //scrollHeight : Altura del contenido informativo del html
 
     if(scrollTop+clientHeight>=scrollHeight){ //Cuando la posición actual sumada a la altura de la página coincidan con el final de los posts
 

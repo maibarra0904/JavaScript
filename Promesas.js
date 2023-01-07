@@ -5,7 +5,7 @@ const numero = 4; //registra "1: sincronico fecth", "2: asincronico fetch", "3: 
 const tipo = numero === 1 ? "sincronico fetch" : numero === 2 ? "asincronico fetch" : 
 numero === 3 ? "sincronico axios" : numero === 4 ? "asincronico axios" : "";
 
-let direccion = "http://localhost:3500/santos";
+let direccion = "http://localhost:3000/santos";
 
 const $fragment = document.createDocumentFragment(),
         $tipo = document.createElement("p"),

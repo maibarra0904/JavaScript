@@ -1,10 +1,11 @@
 export function ContactForm(){
-    const d = document,
-    $form = d.createElement("form"),
-    $styles = d.getElementById("dynamic-styles");
+    const d = document, 
+    $form = d.createElement("form"), //Crea un formulario nuevo
+    $styles = d.getElementById("dynamic-styles"); //Llama el apartado de estilos llamado "dinamic-styles"
     
-    $form.classList.add("contact-form");
+    $form.classList.add("contact-form"); //Agrega la clase "contact-form" al formulario anterior
 
+    //Agrega los siguientes estilos al formulario
     $styles.innerHTML = `
         .contact-form {
             --form-ok-color: green;
@@ -89,7 +90,7 @@ export function ContactForm(){
         }
     `;
     
-
+    //Agrega el siguiente contenido al formulario
     $form.innerHTML = `
         <legend>Envíanos tus comentarios</legend>
         <input type="text" name="name" placeholder="Escribe tu nombre" title="El nombre solo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\\s]+$" required>
@@ -105,33 +106,38 @@ export function ContactForm(){
             <p>Los datos han sido enviados</p>
         </div>
     `;
-
+    
+    //Función que permite realizar validaciones al formulario
     function validationsForm() {
-        const $form = d.querySelector(".contact-form"),
-        $inputs = d.querySelectorAll(".contact-form [required]"); //Es necesario dejar el espacio antes de required
-    
+        const $form = d.querySelector(".contact-form"), //Se llama al formulario
+        $inputs = d.querySelectorAll(".contact-form [required]"); //Se llama todos los campos requeridos
+        //Es necesario dejar el espacio antes de required en el código
         console.log($inputs);
-    
-        $inputs.forEach((input) => {
-            const $span = d.createElement("span");
-            $span.id = input.name;
-            $span.textContent = input.title;
-            $span.classList.add("contact-form-error","none");
-            input.insertAdjacentElement("afterend", $span);
+        
+        //Codificación para mostrar el mensaje de error en los campos requeridos del formulario
+        $inputs.forEach((input) => { //En cada campo de uso requerido haz lo siguiente
+            const $span = d.createElement("span"); //Crea un mensaje emergente
+            $span.id = input.name; //Coloca al mensaje emergente un id
+            $span.textContent = input.title; //Agrégale un título
+            $span.classList.add("contact-form-error","none"); //Añádele la clase error
+            input.insertAdjacentElement("afterend", $span); //Inserta el mensaje de error después del campo
     
         });
         
+        //Programación de la escucha para mostrar los mensajes emergentes por
+        //Errores de ingreso de información en los campos requeridos
         d.addEventListener("keyup", (e) => {
-            if(e.target.matches(".contact-form [required]")) {
-                let $input = e.target,
-                pattern = $input.pattern || $input.dataset.pattern;
+            if(e.target.matches(".contact-form [required]")) { //Si la tecla presionada coincide con un campo requerido haz lo siguiente
+                let $input = e.target, //Guarda en una variable el campo donde se ha presionado la tecla
+                pattern = $input.pattern || $input.dataset.pattern; //Llama a la llave de validación de ese campo
     
-                console.log($input);
-                if(pattern && $input.value!==""){
-                    let regex = new RegExp(pattern);
-                    return !regex.exec($input.value)
-                        ? d.getElementById($input.name).classList.add("is-active")
-                        : d.getElementById($input.name).classList.remove("is-active");
+                console.log(pattern);
+                if(pattern && $input.value!==""){ //Si el campo no está vacío (tiene contenido) y tiene llave de validación
+                    let regex = new RegExp(pattern);//Convierte la llave de validación en un modelo de validación (Expresión Regular)
+                    console.log(regex.exec($input.value));
+                    return !regex.exec($input.value) //Si el modelo de validación no se cumple
+                        ? d.getElementById($input.name).classList.add("is-active") //Agrega la clase "is-active" que activa el mensaje de error
+                        : d.getElementById($input.name).classList.remove("is-active");//Caso contrario remueve esa clase (quita el mensaje de error)
                 }
                 if(!pattern){
     
@@ -140,32 +146,33 @@ export function ContactForm(){
             }
         })
         
-        
+        //Programación del botón submit (enviar formulario)
         d.addEventListener("submit", e => {
             e.preventDefault();
-            alert("Enviando formulario");
+            alert("Enviando formulario"); //Crea una alerta de envío de formulario
 
-            const $loader = d.querySelector(".contact-form-loader"),
-            $response = d.querySelector(".contact-form-response");
+            const $loader = d.querySelector(".contact-form-loader"), //Llama al loader
+            $response = d.querySelector(".contact-form-response"); //Llama al mensaje de respuesta
 
-            $loader.classList.remove("none");
+            $loader.classList.remove("none");//Muestra el loader (removiendo la clase "none")
 
-            fetch("https://formsubmit.co/ajax/fdc4e3c99710f9f612ff6d5da3b2b59c",{
-                method: "POST",
-                body: new FormData(e.target)
+            //Programación para ejecutar el envío del formulario
+            fetch("https://formsubmit.co/ajax/fdc4e3c99710f9f612ff6d5da3b2b59c",{ //Haz la petición a la API de envío de formulario
+                method: "POST", //Esta petición debe cumplir con los parámetros indicados en la documentación de la API
+                body: new FormData(e.target) //En este caso solicita method y body de las formas especificadas
             })
-            .then(res => res.ok ? res.json():Promise.reject(res))
+            .then(res => res.ok ? res.json():Promise.reject(res)) //Si hay una respuesta conviertela a Json
             .then(json => {
-                $loader.classList.add("none");
-                $response.classList.remove("none");
-                $response.innerHTML = `<p>${json.message}</p>`;
-                $form.reset();
+                $loader.classList.add("none"); //Una vez cargada la respuesta quita el loader
+                $response.classList.remove("none"); //Muestra el mensaje de respuesta
+                $response.innerHTML = `<p>${json.message}</p>`; //Inserta el mensaje en el html
+                $form.reset(); //Pon todos los casilleros del formulario en blanco (nuevamente)
             })
             .catch(err =>{
             })
             .finally(()=> setTimeout(()=>{
                 $response.classList.add("none");
-            },3000))
+            },3000)) //Indistintamente de todo, quita el mensaje de respuesta al formulario a los 3 seg
 
         });
     
@@ -173,5 +180,5 @@ export function ContactForm(){
 
     setTimeout(()=>validationsForm(),100); //Permite cargar dinamicamente el contenido dejando a un lado el conflicto con keyup
 
-    return $form;
+    return $form; //Retorna el formulario nuevamente
 }
