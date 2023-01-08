@@ -1,6 +1,7 @@
-import { Menu } from "./Menu.js";
-import { SearchForm } from "./SearchForm.js";
-import { Title } from "./Title.js";
+import { Menu } from "./Menu.js"; //Se llama a la función Menu
+import { SearchForm } from "./SearchForm.js"; //Se llama a la función SearchForm
+import { Title } from "./Title.js"; //Se llama a la función Title
+
 
 export function Header() {
     const $header = document.createElement("header");
