@@ -1,10 +1,5 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '771babd4afmsh1631015e315e6cbp1394e2jsn298d90dd2f3c',
-		'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
-	}
-};
+import {options} from "./shazamKey.js";
+
 const d = document,
 $songs = d.getElementById("songs"), //Se llama a la sección donde se presentarán los shows
 $template =d.getElementById("song-template").content, //Se llama a la plantilla que se usará
@@ -22,6 +17,7 @@ $form.addEventListener("submit", e => {
         .then(response => {
             
             try {
+                $songs.style.textAlign = "center";
                 const infoSongs  = response.tracks.hits;
                 console.log(infoSongs);
 
@@ -50,7 +46,8 @@ $form.addEventListener("submit", e => {
                 }
 
                 catch {
-                    $songs.innerHTML = `<p textalign = "left">No hay información para mostrar</p>`
+                    $songs.style.textAlign = "left";
+                    $songs.innerHTML = `<p textalign = "left">No hay información para mostrar</p>`;
                 }
             
             
