@@ -79,9 +79,10 @@
         }
         */
         
-
+        
         //Ejercicio 6: Mostrar la tabla de multiplicar desde el 1 hasta el número ingresado
 
+        /*
         a = prompt("Ingrese hasta que número de tabla de multiplicar desea visualizar: ")
         let b = "";
         
@@ -92,7 +93,42 @@
             console.log(b);
             b = "";  
         }
+        */
+        const a=30, b=7, c=[0.2,0.35,0.4,0.45], d=[1.1,1.8,2.3,3.5]
+        function e(a, b, c, d) {
+            const result = [];
+            let val=0;
+            for (var i = 0; i < c.length; i++) {
+                val = a * c[i] + b * d[i];
+                result[i] = parseFloat(val.toFixed(1));
+            }
+            return result;
+        }
+        console.log(e(a,b,c,d));
+        /*
+        const gifts = ['cat', 'game', 'socks'], list=[];
 
+        function wrapping(gifts) {
+        for(let i=0; i<gifts.length;i++) {
+            list[i] = ("*".repeat((i+5))) + "\n*" + gifts[i] + "*\n" + ("*".repeat((i+5)));
+        }
+        return [list];
+        }
+
+        const wrapped = wrapping(gifts);
+
+        console.log(wrapped);
+        */
+        function wrapping(gifts) {
+            const wrapped = gifts.map(gift => {
+              const len = gift.length;
+              return `${"*".repeat(len+2)}\n*${gift}*\n${"*".repeat(len+2)}`;
+            })
+          
+            return(wrapped);
+        }
+
+        console.log(wrapping(['cat', 'game', 'socks']));
 
     </script>
 </body>
