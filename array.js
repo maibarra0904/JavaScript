@@ -101,4 +101,12 @@ function countHours(year, holidays) {
     return sum*2
 }
 
-console.log(countHours(year,holidays));
+//console.log(countHours(year,holidays));
+
+function divideSums(a, b) {
+    const capacity = 2 * b.reduce((acc, cur) => acc + cur.length, 0);
+    const weight = a.reduce((acc, cur) => acc + cur.length, 0);
+    return Math.floor(capacity / weight);
+}
+
+console.log(divideSums(["book", "doll", "ball"],["dasher", "dancer"]));
