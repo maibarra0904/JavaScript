@@ -1,23 +1,23 @@
 const frutas = ["manzana", "pera", "durazno"], list = [];
 
 //El bucle for en la actualidad es muy poco utilizado debido al método forEach dado a que
-//este bucle pierde mucha memoria al recibir demasiadas instrucciones para recorrer el array
+//este bucle pierde mucha memoria al recibir demasiadas instrucciones para recorrer el giftsCitiesay
 for(let i = 0; i < frutas.length; i++){
     list[i] = "Fruta "+i+": "+frutas[i];
     console.log(list[i]);
 }
 
 
-//El método forEach, permite recorrer un array sin necesidad de especificarselo. Recibe como primer parámetro
-//de la función anónima asociada al elemento del array, como segundo parámetro al índice de ordenamiento
-// Y si hubiera un tercer parámetro (en este caso no), devuelve el array completo.
+//El método forEach, permite recorrer un giftsCitiesay sin necesidad de especificarselo. Recibe como primer parámetro
+//de la función anónima asociada al elemento del giftsCitiesay, como segundo parámetro al índice de ordenamiento
+// Y si hubiera un tercer parámetro (en este caso no), devuelve el giftsCitiesay completo.
 frutas.forEach((fruta, indice) => {
     //console.log("Fruta ",indice,": ",fruta);
 })
 
 
-//El método map por su parte es importante no para recorrer un array como tal, sino para realizar una
-//transformación que tome como fuente un array
+//El método map por su parte es importante no para recorrer un giftsCitiesay como tal, sino para realizar una
+//transformación que tome como fuente un giftsCitiesay
 const respuesta = frutas.map((fruta, indice) => {
     console.log(`Fruta ${indice}: ${fruta}`);
     return indice*fruta.length;
@@ -26,7 +26,7 @@ const respuesta = frutas.map((fruta, indice) => {
 //console.log(respuesta);
 
 
-//Este codigo permite obtener un nuevo arreglo de un mapa considerando solo aquellos que tengan 
+//Este codigo permite obtener un nuevo giftsCitieseglo de un mapa considerando solo aquellos que tengan 
 //la propiedad "el"
 
 let objetos=[];
@@ -42,7 +42,7 @@ let map = new Map([['foo', 3], ['bar', {el:["ok"]}], ['baz', {el:["ok2"]}]]).for
 //console.log("Objetos:",objetos);
 
 //Usa un filtro usando flatmap descartando aquellos que no tienen la propiedad "el"
-//flatmap no cambia el arreglo original
+//flatmap no cambia el giftsCitieseglo original
 
 let objetos2 = objetos.flatMap(n => n.includes("undefined")?[]:[n]);
 //console.log("Objetos2:",objetos2);
@@ -51,15 +51,15 @@ let objetos2 = objetos.flatMap(n => n.includes("undefined")?[]:[n]);
 const productos = [{id: "1", name: "pina", costo: 5, existe:"si"},{id: "2", name: "manzana", costo: 3},
 {id: "3", name: "naranja", costo: 6}];
 
-//Obtener un nuevo array tomando una propiedad de los objetos del array base
+//Obtener un nuevo giftsCitiesay tomando una propiedad de los objetos del giftsCitiesay base
 const precios = productos.map(({costo}) => Math.round(costo*1.3)); 
 //console.log(precios);
 
-//Obtener un nuevo array similar al anterior pero que cumpla una condición de esa propiedad
+//Obtener un nuevo giftsCitiesay similar al anterior pero que cumpla una condición de esa propiedad
 const precios2 = productos.map(({costo}) => costo<4 ? costo : Math.round(costo*1.3));
 //console.log(precios2);
 
-//Obtener una copia del array base cumpliendo condiciones especificadas de sus propiedades
+//Obtener una copia del giftsCitiesay base cumpliendo condiciones especificadas de sus propiedades
 const precios3 = productos.map(function(productos) {    
     if (productos.existe) {
         return {...productos,
@@ -69,7 +69,7 @@ const precios3 = productos.map(function(productos) {
 
 //console.log(precios3);
 
-/*Funcion que permite obtener un array personalizado a partir de otro*/
+/*Funcion que permite obtener un giftsCitiesay personalizado a partir de otro*/
 function wrapping(gifts) {
     const wrapped = gifts.map(gift => {
       const len = gift.length;
@@ -109,4 +109,61 @@ function divideSums(a, b) {
     return Math.floor(capacity / weight);
 }
 
-console.log(divideSums(["book", "doll", "ball"],["dasher", "dancer"]));
+//console.log(divideSums(["book", "doll", "ball"],["dasher", "dancer"]));
+
+const boxes = [
+    { l: 1, w: 1, h: 1 },
+    { l: 3, w: 3, h: 3 },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    { l: 2, w: 2, h: 2 }
+  ];
+
+
+boxes.sort((a,b) =>a.l-b.l);
+console.log(boxes[0].l);
+let des=true;
+let val1=-1,val2=-1,val3=-1;
+for (let i=0; i<boxes.length;i++){
+    if (boxes[i].l>val1 && boxes[i].w>val2 && boxes[i].h>val3) {
+        val1 = boxes[i].l;
+        val2 = boxes[i].w;
+        val3 = boxes[i].h;
+    }
+    else {
+        des = false;
+    }
+}   
+
+console.log(des);
+
+function getMaxGifts(giftsCities,maxGifts,maxCities) {
+    let result = [];
+    let mapeo = [];
+    
+    let f = function(prefix, giftsCities) {
+      for (var i = 0; i < giftsCities.length; i++) {
+        prefix.concat(giftsCities[i]).length<=maxCities?result.push(prefix.concat(giftsCities[i])):NaN;
+        f(prefix.concat(giftsCities[i]), giftsCities.slice(i + 1));
+      }
+    }
+    f([], giftsCities);
+
+    for(let i=0;i<result.length;i++) {
+        mapeo[i]=result[i].reduce((a,b)=>(a+b),0);
+    }
+
+    const mapfin = mapeo.map(el => {
+        if((maxGifts - el)<0) {
+            return Math.max(...mapeo);
+        }
+        else {
+            return maxGifts - el
+        }
+        ;
+    })
+    
+    return maxGifts - Math.min(...mapfin) < 0 ? 0 : maxGifts - Math.min(...mapfin);
+  }
+
+  console.log(getMaxGifts([50, 70, 30], 100, 2));
+
+  
