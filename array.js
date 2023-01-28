@@ -16,8 +16,8 @@ frutas.forEach((fruta, indice) => {
 })
 
 
-//El método map por su parte es importante no para recorrer un giftsCitiesay como tal, sino para realizar una
-//transformación que tome como fuente un giftsCitiesay
+//El método map por su parte es importante no para recorrer un array como tal, sino para realizar una
+//transformación que tome como fuente un array
 const respuesta = frutas.map((fruta, indice) => {
     console.log(`Fruta ${indice}: ${fruta}`);
     return indice*fruta.length;
@@ -26,7 +26,7 @@ const respuesta = frutas.map((fruta, indice) => {
 //console.log(respuesta);
 
 
-//Este codigo permite obtener un nuevo giftsCitieseglo de un mapa considerando solo aquellos que tengan 
+//Este codigo permite obtener un nuevo arreglo de un mapa considerando solo aquellos que tengan 
 //la propiedad "el"
 
 let objetos=[];
@@ -42,34 +42,34 @@ let map = new Map([['foo', 3], ['bar', {el:["ok"]}], ['baz', {el:["ok2"]}]]).for
 //console.log("Objetos:",objetos);
 
 //Usa un filtro usando flatmap descartando aquellos que no tienen la propiedad "el"
-//flatmap no cambia el giftsCitieseglo original
+//flatmap no cambia el arreglo original
 
 let objetos2 = objetos.flatMap(n => n.includes("undefined")?[]:[n]);
 //console.log("Objetos2:",objetos2);
 
 //Otras formas de aplicar map
 const productos = [{id: "1", name: "pina", costo: 5, existe:"si"},{id: "2", name: "manzana", costo: 3},
-{id: "3", name: "naranja", costo: 6}];
+{id: "3", name: "naranja", costo: 6, existe:"si"}];
 
-//Obtener un nuevo giftsCitiesay tomando una propiedad de los objetos del giftsCitiesay base
+//Obtener un nuevo array tomando una propiedad de los objetos del array base
 const precios = productos.map(({costo}) => Math.round(costo*1.3)); 
 //console.log(precios);
 
-//Obtener un nuevo giftsCitiesay similar al anterior pero que cumpla una condición de esa propiedad
+//Obtener un nuevo array similar al anterior pero que cumpla una condición de esa propiedad
 const precios2 = productos.map(({costo}) => costo<4 ? costo : Math.round(costo*1.3));
 //console.log(precios2);
 
-//Obtener una copia del giftsCitiesay base cumpliendo condiciones especificadas de sus propiedades
+//Obtener una copia del array base cumpliendo condiciones especificadas de sus propiedades
 const precios3 = productos.map(function(productos) {    
     if (productos.existe) {
         return {...productos,
-        costo: productos.costo*1.3}
+        costo: Math.round(productos.costo*1.3,3)}
     }
 });
 
-//console.log(precios3);
+console.log(precios3);
 
-/*Funcion que permite obtener un giftsCitiesay personalizado a partir de otro*/
+/*Funcion que permite obtener un array personalizado a partir de otro*/
 function wrapping(gifts) {
     const wrapped = gifts.map(gift => {
       const len = gift.length;
@@ -103,136 +103,48 @@ function countHours(year, holidays) {
 
 //console.log(countHours(year,holidays));
 
-function divideSums(a, b) {
-    const capacity = 2 * b.reduce((acc, cur) => acc + cur.length, 0);
-    const weight = a.reduce((acc, cur) => acc + cur.length, 0);
-    return Math.floor(capacity / weight);
-}
+const meses = ["Enero", "Febrero", "Marzo"];
 
-//console.log(divideSums(["book", "doll", "ball"],["dasher", "dancer"]));
+meses.push("Abril","Mayo"); //Agrega elementos al final
+meses.pop(); //Elimina el ultimo elemento
+meses.shift(); //Elimina el primer elemento
+meses.unshift("Enero"); //Agrega elementos al inicio
+meses.splice(2,1); //Elimina elementos intermedios toma como parámetros la ubicación del elemento y la cantidad a eliminar
+meses.splice(2,0,"Marzo"); //Inserta elementos intermedios tomando como parámetros la ubicación donde
+//se insertará el número de posiciones a afectar y el contenido del elemento a insertar
 
-const boxes = [
-    { l: 1, w: 1, h: 1 },
-    { l: 3, w: 3, h: 3 },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-    { l: 2, w: 2, h: 2 }
-  ];
+console.table(meses);
 
+//Una buena práctica es crear nuevos arreglos a partir de existentes para evitar su modificación
+const mesesMod = [...meses,"Mayo"]
+console.table(mesesMod);
 
-boxes.sort((a,b) =>a.l-b.l);
-console.log(boxes[0].l);
-let des=true;
-let val1=-1,val2=-1,val3=-1;
-for (let i=0; i<boxes.length;i++){
-    if (boxes[i].l>val1 && boxes[i].w>val2 && boxes[i].h>val3) {
-        val1 = boxes[i].l;
-        val2 = boxes[i].w;
-        val3 = boxes[i].h;
-    }
-    else {
-        des = false;
-    }
-}   
+//Verificar si un elemento existe en un arreglo de elementos
+console.log(mesesMod.includes("Febrero"));
 
-console.log(des);
+//Para arreglo de objetos se usa some para verificar si algun elemento de una propiedad existe
+const products = [...productos];
 
-function getMaxGifts(giftsCities,maxGifts,maxCities) {
-    let result = [];
-    let mapeo = [];
-    
-    let f = function(prefix, giftsCities) {
-      for (var i = 0; i < giftsCities.length; i++) {
-        prefix.concat(giftsCities[i]).length<=maxCities?result.push(prefix.concat(giftsCities[i])):NaN;
-        f(prefix.concat(giftsCities[i]), giftsCities.slice(i + 1));
-      }
-    }
-    f([], giftsCities);
+const verifyProduct = products.some(arr => arr.name == "pera") //Esto es una array function y simplifica lo que se ve a posterior
 
-    for(let i=0;i<result.length;i++) {
-        mapeo[i]=result[i].reduce((a,b)=>(a+b),0);
-    }
+const verifyProduct2 = products.some(function(arr) {
+    return arr.name == "manzana";
+})
 
-    const mapfin = mapeo.map(el => {
-        if((maxGifts - el)<0) {
-            return Math.max(...mapeo);
-        }
-        else {
-            return maxGifts - el
-        }
-        ;
-    })
-    
-    return maxGifts - Math.min(...mapfin) < 0 ? 0 : maxGifts - Math.min(...mapfin);
-}
-
-console.log(getMaxGifts([50, 70, 30], 100, 2));
-
-let space = " ";
-let centerCube = "/\\";
-let reverseCube = "\\/";
-let baseCube = "_";
-let rightCube = "\\_";
-let leftCube = "_/";
-let finalCube = "\\";
-
-console.log(centerCube.substring(0,2));
+console.log(verifyProduct, verifyProduct2);
 
 
-console.log(space.repeat(1)+centerCube.repeat(1)+baseCube+rightCube.repeat(1)+finalCube);
-console.log(space.repeat(0)+centerCube.repeat(2)+baseCube+rightCube.repeat(1)+finalCube);
-console.log(space.repeat(0)+reverseCube.repeat(2)+leftCube.repeat(2));
-console.log(space.repeat(1)+reverseCube.repeat(1)+leftCube.repeat(2));
+//Para recorrer cada elemento se usa forEach
+let soloCostos =[]
+products.forEach(el => soloCostos.push(el.costo))
 
-console.log(space.repeat(2)+centerCube.repeat(1)+baseCube+rightCube.repeat(2)+finalCube);
-console.log(space.repeat(1)+centerCube.repeat(2)+baseCube+rightCube.repeat(2)+finalCube);
-console.log(space.repeat(0)+centerCube.repeat(3)+baseCube+rightCube.repeat(2)+finalCube);
-console.log(space.repeat(0)+reverseCube.repeat(3)+leftCube.repeat(3));
-console.log(space.repeat(1)+reverseCube.repeat(2)+leftCube.repeat(3));
-console.log(space.repeat(2)+reverseCube.repeat(1)+leftCube.repeat(3));
+//Para usar los valores de las propiedades de un array se puede usar reduce
 
-function createCube(size) {
+const sumCost = products.reduce((costo,prod) => costo + prod.costo,0);
 
-    let space = " ";
-    let centerCube = "/\\";
-    let reverseCube = "\\/";
-    let baseCube = "_";
-    let rightCube = "\\_";
-    let leftCube = "_/";
-    let finalCube = "\\";
+//Para filtrar objetos de un array que cumplan alguna condición en base a una propiedad se usa filter
+const costFilter = products.filter((pro) => {
+    return pro.costo < 5;
+})
 
-    for(let i = size-1; i>-1;i--) {
-        console.log(space.repeat(i)+centerCube.repeat(size-i)+baseCube+rightCube.repeat(size-1)+finalCube);
-    }
-    for(let i = 0; i<size;i++) {
-        console.log(space.repeat(i)+reverseCube.repeat(size-i)+leftCube.repeat(size));
-    }
-
-    return ""
-}
-
-createCube(4);
-
-function cube(size) {
-
-    let space = " ";
-    let centerCube = `/\\`;
-    let reverseCube = "\\/";
-    let baseCube = "_";
-    let rightCube = "\\_";
-    let leftCube = "_/";
-    let finalCube = "\\";
-
-    let superiorCube = [];
-    let contador = 0;
-
-    for(let i = size-1; i>-1;i--) {
-        superiorCube[contador] = space.repeat(i)+centerCube.repeat(size-i)+baseCube+rightCube.repeat(size-1)+finalCube;
-        contador++;
-    }
-    for(let i = 0; i<size;i++) {
-        superiorCube[contador] = space.repeat(i)+reverseCube.repeat(size-i)+leftCube.repeat(size);
-        contador++;
-    }
-    return superiorCube.join("\n");
-}
-
-console.log(cube(3));
+console.log(soloCostos,sumCost, costFilter);
