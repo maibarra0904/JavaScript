@@ -162,8 +162,77 @@ function getMaxGifts(giftsCities,maxGifts,maxCities) {
     })
     
     return maxGifts - Math.min(...mapfin) < 0 ? 0 : maxGifts - Math.min(...mapfin);
-  }
+}
 
-  console.log(getMaxGifts([50, 70, 30], 100, 2));
+console.log(getMaxGifts([50, 70, 30], 100, 2));
 
-  
+let space = " ";
+let centerCube = "/\\";
+let reverseCube = "\\/";
+let baseCube = "_";
+let rightCube = "\\_";
+let leftCube = "_/";
+let finalCube = "\\";
+
+console.log(centerCube.substring(0,2));
+
+
+console.log(space.repeat(1)+centerCube.repeat(1)+baseCube+rightCube.repeat(1)+finalCube);
+console.log(space.repeat(0)+centerCube.repeat(2)+baseCube+rightCube.repeat(1)+finalCube);
+console.log(space.repeat(0)+reverseCube.repeat(2)+leftCube.repeat(2));
+console.log(space.repeat(1)+reverseCube.repeat(1)+leftCube.repeat(2));
+
+console.log(space.repeat(2)+centerCube.repeat(1)+baseCube+rightCube.repeat(2)+finalCube);
+console.log(space.repeat(1)+centerCube.repeat(2)+baseCube+rightCube.repeat(2)+finalCube);
+console.log(space.repeat(0)+centerCube.repeat(3)+baseCube+rightCube.repeat(2)+finalCube);
+console.log(space.repeat(0)+reverseCube.repeat(3)+leftCube.repeat(3));
+console.log(space.repeat(1)+reverseCube.repeat(2)+leftCube.repeat(3));
+console.log(space.repeat(2)+reverseCube.repeat(1)+leftCube.repeat(3));
+
+function createCube(size) {
+
+    let space = " ";
+    let centerCube = "/\\";
+    let reverseCube = "\\/";
+    let baseCube = "_";
+    let rightCube = "\\_";
+    let leftCube = "_/";
+    let finalCube = "\\";
+
+    for(let i = size-1; i>-1;i--) {
+        console.log(space.repeat(i)+centerCube.repeat(size-i)+baseCube+rightCube.repeat(size-1)+finalCube);
+    }
+    for(let i = 0; i<size;i++) {
+        console.log(space.repeat(i)+reverseCube.repeat(size-i)+leftCube.repeat(size));
+    }
+
+    return ""
+}
+
+createCube(4);
+
+function cube(size) {
+
+    let space = " ";
+    let centerCube = `/\\`;
+    let reverseCube = "\\/";
+    let baseCube = "_";
+    let rightCube = "\\_";
+    let leftCube = "_/";
+    let finalCube = "\\";
+
+    let superiorCube = [];
+    let contador = 0;
+
+    for(let i = size-1; i>-1;i--) {
+        superiorCube[contador] = space.repeat(i)+centerCube.repeat(size-i)+baseCube+rightCube.repeat(size-1)+finalCube;
+        contador++;
+    }
+    for(let i = 0; i<size;i++) {
+        superiorCube[contador] = space.repeat(i)+reverseCube.repeat(size-i)+leftCube.repeat(size);
+        contador++;
+    }
+    return superiorCube.join("\n");
+}
+
+console.log(cube(3));
