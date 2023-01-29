@@ -380,9 +380,9 @@ registro.ficha();
 
 //Declaración de una función -- JS funciona en dos fases: Registro y Lectura de cógido
 //En la etapa de registro leerá primero estas funciones.
-sumar(); //Por lo anterior indicado da lo mismo si llamas la función al inicio o al final, igual funcionará
-function sumar() {
-    console.log(3 + 4);
+sumar(5,4); //Por lo anterior indicado da lo mismo si llamas la función al inicio o al final, igual funcionará
+function sumar(n1,n2) {
+    console.log(n2 + n1);
 }
 
 
@@ -416,3 +416,43 @@ let cadenaNum, numCadena;
 cadenaNum = num.toString() //Este es un método usado para convertir un número a cadena de texto
 numCadena = parseInt(cadenaNum) //Esta es una función para convertir en número un texto numérico
 console.log(typeof cadenaNum, typeof numCadena);
+
+//Función que retorna valor
+function sumReturn(n1,n2) {
+    return n1 + n2
+}
+const result = sumReturn(30,2);
+console.log(result, sumReturn(30,25));
+
+
+//Función que retorna valores diferentes al ser llamada varias veces: Caso de uso total del carrito de compras
+let subtotal=0;
+
+function sumaTotal(val) {
+    subtotal += val;
+    const factura = {
+      val: subtotal,
+      imp: Math.round(subtotal*0.12*100)/100,
+    };
+
+    return factura;
+}
+
+sumaTotal(20);
+sumaTotal(30);
+sumaTotal(120);
+
+const cliente = sumaTotal(10);
+
+console.log(`Subtotal: \t $${cliente.val} \nImpuesto: \t $${cliente.imp} \nTotal: \t\t $${cliente.val + cliente.imp}`);
+
+//Array function
+
+const ejemploSaf = function multiplicar (a,b) {
+    return a*b;
+}
+
+const ejemploCaf = (a,b) => a*b;
+
+console.log(ejemploSaf(3,4));
+console.log(ejemploCaf(3,4));

@@ -1,4 +1,4 @@
-//Creación de un objeto
+//Creación de un objeto (Object Literal)
 const producto = {
     nombre: "Tv de 20'",
     precio: 250,
@@ -31,3 +31,16 @@ const medidas = {
 // Se pueden unir las propiedades de diferentes objetos en una nueva variable
 const infoProduct = {...producto,...medidas};
 console.log(infoProduct);
+
+
+//Creación de un Object Constructor
+
+function Prod(nombre,precio) {
+    this.nombre = nombre,
+    this.precio = precio
+}
+
+const product1 = new Prod("pera", 20);
+const product2 = new Prod("manzana", 30);
+
+console.log(product1, product2);

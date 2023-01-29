@@ -1,16 +1,16 @@
 const frutas = ["manzana", "pera", "durazno"], list = [];
 
 //El bucle for en la actualidad es muy poco utilizado debido al método forEach dado a que
-//este bucle pierde mucha memoria al recibir demasiadas instrucciones para recorrer el giftsCitiesay
+//este bucle pierde mucha memoria al recibir demasiadas instrucciones para recorrer el array
 for(let i = 0; i < frutas.length; i++){
     list[i] = "Fruta "+i+": "+frutas[i];
     console.log(list[i]);
 }
 
 
-//El método forEach, permite recorrer un giftsCitiesay sin necesidad de especificarselo. Recibe como primer parámetro
-//de la función anónima asociada al elemento del giftsCitiesay, como segundo parámetro al índice de ordenamiento
-// Y si hubiera un tercer parámetro (en este caso no), devuelve el giftsCitiesay completo.
+//El método forEach, permite recorrer un array sin necesidad de especificarselo. Recibe como primer parámetro
+//de la función anónima asociada al elemento del array, como segundo parámetro al índice de ordenamiento
+// Y si hubiera un tercer parámetro (en este caso no), devuelve el array completo.
 frutas.forEach((fruta, indice) => {
     //console.log("Fruta ",indice,": ",fruta);
 })
@@ -59,11 +59,11 @@ const precios = productos.map(({costo}) => Math.round(costo*1.3));
 const precios2 = productos.map(({costo}) => costo<4 ? costo : Math.round(costo*1.3));
 //console.log(precios2);
 
-//Obtener una copia del array base cumpliendo condiciones especificadas de sus propiedades
+//Obtener una copia del array base cambiando el valor de una de sus propiedades
 const precios3 = productos.map(function(productos) {    
     if (productos.existe) {
         return {...productos,
-        costo: Math.round(productos.costo*1.3,3)}
+        costo: Math.round(productos.costo*1.3*100)/100}
     }
 });
 
@@ -148,3 +148,15 @@ const costFilter = products.filter((pro) => {
 })
 
 console.log(soloCostos,sumCost, costFilter);
+
+const aleat = [[1,2],[3,4],[5,6]]
+
+const aleatMap = aleat.map(n => [n.join(",")]); //map puede crear varios arreglos, aplicando funciones
+                                                //en su interior al recorrer cada elemento
+
+const aleatFlat = aleat.flat(); //Solo sirve para aplanar un arreglo
+
+const aleatFlatmap = aleat.flatMap(n => [n.join(",")]); //flatmap aplana los arreglos pudiendo aplicar 
+                                                        //funciones dentro y los convierte en uno solo
+
+console.log(aleatMap,aleatFlat , aleatFlatmap);
