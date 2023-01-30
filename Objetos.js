@@ -43,4 +43,29 @@ function Prod(nombre,precio) {
 const product1 = new Prod("pera", 20);
 const product2 = new Prod("manzana", 30);
 
-console.log(product1, product2);
+// function formatearProducto(Prod) {
+//     return `El precio del producto ${Prod.nombre} es $${Prod.precio}`;
+// }
+
+
+//Un prototipo es una función creada a partir de una anterior
+Prod.prototype.formatearProducto = function() {
+    return `El precio del producto ${this.nombre} es $${this.precio}`;
+}
+
+console.log(product1.formatearProducto());
+
+
+const servicio = {
+    nombre: "Lavanderia",
+    precio: 20
+}
+
+function Serv(nombre,precio) {
+    this.nombre = nombre,
+    this.precio = precio
+    return `El servicio ${nombre} tiene un precio de $${precio}`
+}
+const servicio1 = new Serv("Lavanderia",5)
+
+console.log(servicio1.formatearProducto());
