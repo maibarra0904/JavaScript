@@ -33,39 +33,71 @@ const infoProduct = {...producto,...medidas};
 console.log(infoProduct);
 
 
-//Creación de un Object Constructor
+//Creación de un Object Constructor usando prototipos
 
+//Paso 1: Crear el objeto base con los parámetros requeridos
 function Prod(nombre,precio) {
     this.nombre = nombre,
     this.precio = precio
 }
 
+
+//Paso 2: Crear un prototipo
+//Un prototipo es un objeto creado a partir de uno anterior
+//En este caso este prototipo toma los parámetros del objeto Prod (función) y los utiliza
+//para un producto nuevo creado a partir de ese objeto
+Prod.prototype.formatearProducto = function(tipo) {
+    return `El precio del producto ${this.nombre} es $${this.precio} y su tipo es ${tipo}`;
+}
+
+//Paso 3: Se crean los objetos a partir del objeto principal
 const product1 = new Prod("pera", 20);
 const product2 = new Prod("manzana", 30);
 
-// function formatearProducto(Prod) {
-//     return `El precio del producto ${Prod.nombre} es $${Prod.precio}`;
-// }
+//Paso 4: Se utilizan los prototipos
+console.log(product1.formatearProducto("fruta"));
 
 
-//Un prototipo es una función creada a partir de una anterior
-Prod.prototype.formatearProducto = function() {
-    return `El precio del producto ${this.nombre} es $${this.precio}`;
+
+//Creación de un Object Constructor usando clases
+
+//Paso 1: Crear el objeto (clase) con su constructor y métodos
+class Servicio {
+    constructor(nombre,precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    formatearServicio(tipo) {
+        return `El precio del servicio ${this.nombre} es $${this.precio} y su tipo es ${tipo}`;
+    }
 }
 
-console.log(product1.formatearProducto());
+//Paso 2: Se crean los objetos
+const servicio1 = new Servicio("Lavanderia",5);
+
+//Paso 3: Se utilizan los métodos del objeto creado
+console.log(servicio1.formatearServicio("Presencial"));
 
 
-const servicio = {
-    nombre: "Lavanderia",
-    precio: 20
+//Herencia: Tomar la información de otro objeto para usarlo en uno nuevo
+
+class Ubicacion extends Servicio {
+    constructor (nombre,precio,ubic) {
+        super(nombre,precio);
+        this.ubic = ubic;
+    }
+
+    incluirUbicacion (tipo) {
+        return `${this.formatearServicio(tipo)} cuya ubicación es ${this.ubic} `;
+    }
+
+
 }
 
-function Serv(nombre,precio) {
-    this.nombre = nombre,
-    this.precio = precio
-    return `El servicio ${nombre} tiene un precio de $${precio}`
-}
-const servicio1 = new Serv("Lavanderia",5)
+const ubicacion1 = new Ubicacion("Mensajería", 3, "Milagro");
 
-console.log(servicio1.formatearProducto());
+const ubicacion2 = new Ubicacion("Pintura", 50, "Milagro");
+
+console.log(ubicacion1.formatearServicio("Transporte"));
+console.log(ubicacion2.incluirUbicacion("Física"));
