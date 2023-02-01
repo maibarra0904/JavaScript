@@ -132,3 +132,37 @@ function cube(size) {
 }
 
 console.log(cube(3));
+
+const a1 = ['bici', 'coche', 'bici', 'bici'];
+const a2 = ['coche', 'bici', 'muñeca', 'coche'];
+const a3 = ['bici', 'pc', 'pc'];
+
+function getGiftsToRefill(a1, a2, a3) {
+    let result = [];
+    
+    for (let i = 0; i < a1.length; i++) {
+      if (a2.indexOf(a1[i]) === -1 && a3.indexOf(a1[i]) === -1) {
+        result.push(a1[i]);
+      }
+    }
+  
+    for (let i = 0; i < a2.length; i++) {
+      if (a1.indexOf(a2[i]) === -1 && a3.indexOf(a2[i]) === -1) {
+        result.push(a2[i]);
+      }
+    }
+  
+    for (let i = 0; i < a3.length; i++) {
+      if (a1.indexOf(a3[i]) === -1 && a2.indexOf(a3[i]) === -1) {
+        result.push(a3[i]);
+      }
+    }
+
+    const uniqueArray = result.filter((item, index) => {
+        return result.indexOf(item) === index;
+    });
+  
+    return uniqueArray;
+  }
+
+  console.log(getGiftsToRefill(a1,a2,a3));
