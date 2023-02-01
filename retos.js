@@ -166,3 +166,47 @@ function getGiftsToRefill(a1, a2, a3) {
   }
 
   console.log(getGiftsToRefill(a1,a2,a3));
+
+  function checkPart(part) {
+    let left = 0;
+    let right = part.length - 1;
+    let mismatchFound = false;
+  
+    while (left < right) {
+      if (part[left] !== part[right]) {
+        if (mismatchFound) return false;
+        mismatchFound = true;
+        if (part[left + 1] === part[right]) {
+          left++;
+        } else if (part[left] === part[right - 1]) {
+          right--;
+        }
+      } else {
+        left++;
+        right--;
+      }
+    }
+  
+    return true;
+  }
+
+  console.log(checkPart("miidim"));
+
+  function checkPal(part) {
+    part = part.toLowerCase();
+    let result=false;
+    if(part === part.split("").reverse().join("")) {
+      return true;
+    }
+    else {
+      for (let i = 0; i < part.length; i++) {
+        let combinacion = part.slice(0, i) + part.slice(i + 1);
+        result= result===true ? true : combinacion === combinacion.split("").reverse().join("");
+      }
+      return result;
+    }
+
+    
+  }
+
+  console.log(checkPal("midu"));
