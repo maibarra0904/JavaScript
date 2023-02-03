@@ -15,8 +15,8 @@ delete producto.descripcion;
 //Se puede congelar el objeto para impedir que sus propiedades sean modificadas
 Object.freeze(producto); //freeze impide agregar, eliminar o modificar. seal sí permite modificar
 
-//Se puede destructurar un objeto, es decir, se extrae una propiedad y se crea una
-//variable con el mismo nombre al mismo tiempo
+//Se puede destructurar un objeto, es decir, se extrae una propiedad (variable) y se crea una
+//o más variables con el mismo nombre que el del objeto original al mismo tiempo
 const {precio,nombre} = producto;
 
 console.log(producto);

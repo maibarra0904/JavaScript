@@ -210,3 +210,28 @@ function getGiftsToRefill(a1, a2, a3) {
   }
 
   console.log(checkPal("midu"));
+
+let leds = [1,0,0,1];
+let ledEncendidos =0;
+let onLeds = leds.forEach(el=>ledEncendidos+=el) 
+let cycles = 0
+
+function countTime(leds) {
+  while(leds.length !== ledEncendidos){
+    for(let i=0; i<leds.length; i++) {
+      if (leds.indexOf(0)) {
+        cycles++;
+        if(leds[leds.indexOf(0)]===leds[i]) {
+          leds[i]=1;
+        }
+        else {}
+      }
+      else {}
+    }
+  }
+  return cycles, ledEncendidos;
+}
+
+
+console.log(ledEncendidos);
+console.log(countTime(leds));
