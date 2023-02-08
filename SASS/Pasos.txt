@@ -1,0 +1,51 @@
+<---Compilar SASS con Gulp--->
+
+
+***--Cómo instalar SASS--***
+
+En la terminal colocar:
+1. npm init
+    1.1 Configurar el archivo package.json
+
+2. npm install sass
+
+3. Borrar "dependencies": "sass" del archivo package.json (la idea es borrarla como dependencia simple e
+instalarla como dependencia de desarrollo que se lo hace con el paso a continuación)
+
+3. npm install sass --save-dev (se crea la carpeta de dependencia node-modules)
+
+4. Se crea la carpeta src y dentro el archivo app.sass
+
+5. En "scripts" del package.json se agrega lo siguiente (ubicacion de la carpeta donde esta el archivo scss y donde se compilará - Ésta última carpeta la crea automáticamente):
+"sass":"sass src/sass:build/css"
+
+6. Se compila lo anterior colocando lo siguiente en la terminal: npm run sass
+    Con este código se crea la carpeta build con los archivos app.css y app.css.map
+
+7. Para evitar estar compilando en cada cambio es necesario agregar watch modificando el package 
+de la siguiente forma:
+    "sass --watch src/sass:build/css"
+
+    7.1 A partir de esta modificación si se coloca en la terminal: npm run sass
+        Estará constantemente atento a los cambios que se produzcan en el app.scss (Ctrl+C detiene el watch)
+
+
+***--Cómo instalar Gulp--***
+
+1. npm i -D gulp
+    1.1 Se verifica la versión de gulp en package.json
+
+2. Se crea el archivo gulpfile.js en la raíz del proyecto (y se crean tareas a través de funciones)
+
+3. Se llama a la tarea a través de la terminal usando: npx gulp nombre_de_tarea
+
+    3.1 También se puede llamar la tarea usando npm haciendo lo siguiente:
+        3.1.1 Agrega a "scripts" en el package la tarea gulp, Ej: "nombre_tarea": "gulp nombre_tarea_gulpfile"
+        3.1.2 Llámalo a través de la terminal usando: npm run nombre_tarea
+
+
+**--Compilar SASS con gulp--**
+
+1. Instalar dependencia de gulp con sass: npm i --save-dev gulp-sass (Se verifica en package.json)
+
+2. Para ver los siguientes pasos remitirse a archivo gulpfile.js

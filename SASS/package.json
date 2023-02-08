@@ -1,0 +1,21 @@
+{
+  "name": "sassproject",
+  "version": "1.0.0",
+  "description": "sass, gulp y html",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/sass:build/css",
+    "tarea": "gulp tarea"
+  },
+  "keywords": [
+    "sass",
+    "gulp"
+  ],
+  "author": "Mario Ibarra",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.58.0"
+  }
+}
