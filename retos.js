@@ -211,27 +211,69 @@ function getGiftsToRefill(a1, a2, a3) {
 
   console.log(checkPal("midu"));
 
-let leds = [1,0,0,1];
+let leds = [0, 0, 1, 0, 0];
 let ledEncendidos =0;
 let onLeds = leds.forEach(el=>ledEncendidos+=el) 
 let cycles = 0
 
+
+
+
+
 function countTime(leds) {
-  while(leds.length !== ledEncendidos){
-    for(let i=0; i<leds.length; i++) {
-      if (leds.indexOf(0)) {
-        cycles++;
-        if(leds[leds.indexOf(0)]===leds[i]) {
-          leds[i]=1;
-        }
-        else {}
-      }
-      else {}
+  let array = leds.concat(leds);
+  let count = 0;
+  let maxCount = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 0) {
+      count++;
+    } else {
+      count = 0;
+    }
+    if (count > maxCount) {
+      maxCount = count;
     }
   }
-  return cycles, ledEncendidos;
+  return maxCount*7;
 }
 
+// function countTime(leds) {
+//   let count = 0;
+//   let cycles = 1;
+//   let a,b;
+  
+//   while (leds.includes(0)) {
+    
+//     //console.log(leds);
+//     for (let i = 0; i < leds.length; i++) {
+      
 
-console.log(ledEncendidos);
+//       if (i===0) {
+//         a=0;
+//         b=leds.length-1;
+//       } else {
+//         a=i;
+//         b=i-1;
+//       }
+//       if (leds[a] === 0 && leds[b] === 1) {
+//         count++;
+//         leds[a] = 1;
+//         break;
+//       } 
+//     }
+
+
+//     if (leds.includes(0)) {
+//       cycles++;
+//     }
+    
+//   }
+  
+    
+  
+  
+//   return cycles*7;
+// }
+
+
 console.log(countTime(leds));
