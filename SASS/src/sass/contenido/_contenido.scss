@@ -1,0 +1,25 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+h1{
+    color: v.$rojo;
+    background-color: v.$azul;
+    text-transform: uppercase;
+}
+
+h2{
+    color: v.$verde;
+    font-family: v.$fuente;
+}
+
+p {
+    @include m.parrafo(v.$gris, true);
+    @include m.telefono {
+        font-size: 11px;        
+    }
+}
+
+.imagen {
+    max-width: 100%;
+    height: auto;
+}

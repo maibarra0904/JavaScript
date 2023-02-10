@@ -37,7 +37,7 @@ de la siguiente forma:
 
 2. Se crea el archivo gulpfile.js en la raíz del proyecto (y se crean tareas a través de funciones)
 
-3. Se llama a la tarea a través de la terminal usando: npx gulp nombre_de_tarea
+3. Se llama a la tarea a través de la terminal usando: npx gulp nombre_tarea
 
     3.1 También se puede llamar la tarea usando npm haciendo lo siguiente:
         3.1.1 Agrega a "scripts" en el package la tarea gulp, Ej: "nombre_tarea": "gulp nombre_tarea_gulpfile"
@@ -49,3 +49,6 @@ de la siguiente forma:
 1. Instalar dependencia de gulp con sass: npm i --save-dev gulp-sass (Se verifica en package.json)
 
 2. Para ver los siguientes pasos remitirse a archivo gulpfile.js
+
+3. Para evitar que se detenga gulp por algun error detectado es necesario instalar plumber
+    npm i --save-dev gulp-plumber

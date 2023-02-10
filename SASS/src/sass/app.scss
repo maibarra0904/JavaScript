@@ -1,7 +1,10 @@
-$rojo: red;
-$azul: blue;
+// use compila los archivos contenidos en toda una carpeta
+//Se aplica solo en el archivo donde se llama al use
+@use 'base';
+@use 'contenido';
 
-h1{
-    color: white;
-    background-color: $azul;
-}
+//import solo apunta y lee un archivo en particular
+//@import 'contenido/contenido';
+//La ventaja es que esta importación está disponible para todo el proyecto
+
+

@@ -1,0 +1,21 @@
+//Los mixins permite reutilizar código css en varios lugares
+@use 'variables' as v;
+
+//Mixin para reutilizar propiedades en elementos
+@mixin parrafo ($color:blue,$espacio: false) {
+    color: $color;
+    text-decoration-line: underline;
+    
+
+    @if $espacio {
+        letter-spacing: 3px;
+    }
+}
+
+//Mixin para reutilizar mediaqueries
+@mixin telefono {
+    @media (max-width: 480px) {
+        @content; //permite pasar todo el contenido en donde se lo utilice
+    }
+
+}
