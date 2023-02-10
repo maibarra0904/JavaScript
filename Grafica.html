@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <table id="data-table">
+        <tr>
+          <th>Mes</th>
+          <th>Ventas</th>
+        </tr>
+        <tr>
+          <td>Enero</td>
+          <td>700</td>
+        </tr>
+        <tr>
+          <td>Febrero</td>
+          <td>1200</td>
+        </tr>
+        <tr>
+          <td>Marzo</td>
+          <td>800</td>
+        </tr>
+    </table>
+    <canvas id="sales-chart"></canvas>
+    <script>
+        const table = document.getElementById("data-table");
+        const data = [];
+        const labels = [];
+        for (let i = 1; i < table.rows.length; i++) {
+          labels.push(table.rows[i].cells[0].innerHTML);
+          data.push(table.rows[i].cells[1].innerHTML);
+        }
+        const ctx = document.getElementById("sales-chart").getContext("2d");
+        const chart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Ventas",
+                data: data,
+                backgroundColor: "rgba(54, 10, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+          },
+        });
+      </script>
+</body>
+</html>

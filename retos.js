@@ -277,3 +277,56 @@ function countTime(leds) {
 
 
 console.log(countTime(leds));
+
+function checkJump(heights) {
+  let parabola = true;
+  let ultimo = -Infinity;
+  let ultimoAsc = 0;
+
+  if (heights.every(val => val === heights[0]) || heights.every((num, i) => { return i === 0 || num >= heights[i - 1]; }) || heights.every((num, i) => { return i === 0 || num <= heights[i - 1]; })) {
+    parabola = false;
+  }
+  else {
+    for(let i=0; i<heights.length; i++) {
+      if(heights[i]>=ultimo) {
+        ultimo=heights[i];
+        ultimoAsc = i;
+        if (i===heights.length-1) {
+          parabola = false;
+          break;
+        }
+      }
+      else {
+        ultimoAsc = i-1;
+        break;
+      }
+    }
+
+    for(let i=ultimoAsc; i<heights.length; i++) {
+      if(heights[i]<=ultimo) {
+        ultimo=heights[i];
+      }
+      else {
+        parabola = false;
+        break;
+      }
+    }
+    
+    
+  
+  }
+  //return heights.every(val => val >= (val -1));
+  return parabola;
+}
+
+
+
+const array = [1, 2, 2, 1];
+const isAscending = array.every((num, i) => { 
+    return i === 0 || num >= array[i - 1]; 
+});
+
+const isDescending = array.every((num, i) => { 
+  return i === 0 || num <= array[i - 1]; 
+}); 
+console.log(array.indexOf(Math.max(...array))); // true
