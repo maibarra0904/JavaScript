@@ -321,12 +321,34 @@ function checkJump(heights) {
 
 
 
-const array = [1, 2, 2, 1];
-const isAscending = array.every((num, i) => { 
-    return i === 0 || num >= array[i - 1]; 
-});
+function getCompleted(part, total) {
+  let horas1 = +part.substring(0,2);
+  let minutos1 = +part.substring(3,5);
+  let segundos1 = +part.substring(6,8);
+  let tts1 = (horas1*3600)+(minutos1*60)+(segundos1)
 
-const isDescending = array.every((num, i) => { 
-  return i === 0 || num <= array[i - 1]; 
-}); 
-console.log(array.indexOf(Math.max(...array))); // true
+  let horas2 = +total.substring(0,2);
+  let minutos2 = +total.substring(3,5);
+  let segundos2 = +total.substring(6,8);
+  let tts2 = (horas2*3600)+(minutos2*60)+(segundos2)
+
+  const maximoComunDivisor = (a, b) => {
+    let temporal;
+    while (b !== 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
+  };
+
+  let MCD = maximoComunDivisor(tts1,tts2);
+
+  return `${tts1/MCD}/${tts2/MCD}`;
+
+}
+
+let part = '03:30:30';
+let total = '05:50:50';
+
+console.log(getCompleted(part,total));
