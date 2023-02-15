@@ -352,3 +352,79 @@ let part = '03:30:30';
 let total = '05:50:50';
 
 console.log(getCompleted(part,total));
+
+
+const distance = 10
+const sleighs = [
+  { name: 'Pedrosillano', consumption: 1 },
+  { name: 'SamarJaffal', consumption: 5 }
+]
+
+function selectSleigh(distance, sleighs) {
+  const consumo = sleighs.map(el => (distance * el.consumption)-20);
+  const costFilter = consumo.filter((pro) => {
+    return pro <=0;
+  });
+  const optimoVal = Math.abs(Math.max(...costFilter));
+
+  let optimoName;
+
+  if(costFilter.length===0) {
+    optimoName=null;
+  }
+  else {
+    for(let i=0; i<sleighs.length; i++) {
+      if(Math.abs(distance *sleighs[i].consumption - 20)===optimoVal) {
+        optimoName = sleighs[i].name;
+      }
+    }
+  }
+  return optimoName;
+}
+
+console.log(selectSleigh(distance, sleighs));
+
+function selectSleigh2(distance, sleighs) {
+  const consumo = sleighs.map(el => ((distance * el.consumption)-20)<=0?Math.abs(((distance * el.consumption)-20)):Infinity);
+  const consumo2 = sleighs.map(el => ((distance * el.consumption)-20)<=0?{name: el.name, totalConsumption: Math.abs(((distance * el.consumption)-20))}:{name: el.name, totalConsumption: Infinity});
+  const optName = consumo2.filter(el => el.totalConsumption === Math.min(...consumo2.map(el=>el.totalConsumption)));
+  const menor = Math.min(...consumo2.map(el=>el.totalConsumption));
+  let sum=0;
+  const val = consumo.forEach(el => sum+=el);
+  let optimoName;
+  let posName = sleighs.filter(el => Math.abs(((distance * el.consumption)-20))===Math.min(...consumo)?el.name:null);
+  if(val===0 || posName.length===0) {
+    optimoName=null;
+  }
+  else{
+    optimoName=posName[0].name;
+  }
+  console.log(consumo2, menor, optName);
+  return optimoName;
+}
+
+
+console.log(selectSleigh2(distance, sleighs));
+
+
+const lastBackup = 1546300600;
+const changes = [
+  [ 1, 1546300800 ],
+  [ 2, 1546300800],
+  [ 2, 1546300600],
+  [ 1, 1546300900 ],
+  [ 1, 1546301000 ],
+  [ 3, 1546301100 ],
+  [ 5, 1546300600]
+]
+
+
+function getFilesToBackup(lastBackup, changes) {
+  let cambios = changes.map(el => el[1]<=lastBackup?[el[0],false]:[el[0],true]);
+  console.log(cambios);
+  let selected = cambios.filter(el => el[1]===true);
+  let resultado = Array.from(new Set(selected.map(el => el[0])));
+  return resultado.sort();
+}
+
+console.log(getFilesToBackup(lastBackup, changes));
