@@ -428,3 +428,12 @@ function getFilesToBackup(lastBackup, changes) {
 }
 
 console.log(getFilesToBackup(lastBackup, changes));
+
+function getFilesToBackup2(lastBackup, changes) {
+  let cambios = changes.map(el => el[1]>lastBackup?el[0]:0);
+  let selected = cambios.filter(el => el!==0);
+  let resultado = Array.from(new Set(selected));
+  return resultado.sort();
+}
+
+console.log(getFilesToBackup2(lastBackup, changes));
