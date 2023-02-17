@@ -407,9 +407,9 @@ function selectSleigh2(distance, sleighs) {
 console.log(selectSleigh2(distance, sleighs));
 
 
-const lastBackup = 1546300600;
+const lastBackup = 1546300800;
 const changes = [
-  [ 1, 1546300800 ],
+  [ -1, 1546300900 ],
   [ 2, 1546300800],
   [ 2, 1546300600],
   [ 1, 1546300900 ],
@@ -424,16 +424,17 @@ function getFilesToBackup(lastBackup, changes) {
   console.log(cambios);
   let selected = cambios.filter(el => el[1]===true);
   let resultado = Array.from(new Set(selected.map(el => el[0])));
-  return resultado.sort();
+  return resultado.sort((a,b)=>a-b);
 }
 
 console.log(getFilesToBackup(lastBackup, changes));
 
 function getFilesToBackup2(lastBackup, changes) {
-  let cambios = changes.map(el => el[1]>lastBackup?el[0]:0);
-  let selected = cambios.filter(el => el!==0);
-  let resultado = Array.from(new Set(selected));
-  return resultado.sort();
+  let selected = changes.filter(el => el[1]>lastBackup);
+  let cambios = selected.map(el => el[0]);
+  let resultado = [...new Set(cambios)];
+  resultado.sort((a,b)=>a-b);
+  return resultado;
 }
 
 console.log(getFilesToBackup2(lastBackup, changes));
