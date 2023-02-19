@@ -34,6 +34,11 @@
       "nombre": "Alberto",
       "constelacion": "mmm",
       "id": 7
+    },
+    {
+      "nombre": "Example",
+      "constelacion": "empty",
+      "id": 8
     }
   ],
   "dioses": [

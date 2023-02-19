@@ -438,3 +438,24 @@ function getFilesToBackup2(lastBackup, changes) {
 }
 
 console.log(getFilesToBackup2(lastBackup, changes));
+
+const path = [
+  [5],
+  [7, 4],
+  [2, 4, 6],
+  [3, 9, 5, 4],
+  [1, 4, 6, 3, 2],
+  [2, 1, 5, 8, 4, 3]
+];
+
+function getOptimalPath(path) {
+  const optimal = path.reduceRight((prev, curr) => {
+    return curr.map((val, index) => {
+      return val + Math.min(prev[index], prev[index + 1])
+    })
+  })
+
+  return optimal[0]
+}
+
+console.log(getOptimalPath(path));
