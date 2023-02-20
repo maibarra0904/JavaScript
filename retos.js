@@ -459,3 +459,44 @@ function getOptimalPath(path) {
 }
 
 console.log(getOptimalPath(path));
+
+let b='B B R P B R';
+console.log(b.length);
+function decorateTree (base) { 
+  let conditions = [
+    ['B_B', 'B'],
+    ['P_P', 'P'],
+    ['R_R', 'R'],
+    ['B_P', 'R'],
+    ['P_B', 'R'],
+    ['R_P', 'B'],
+    ['P_R', 'B'],
+    ['B_R', 'P'],
+    ['R_B', 'P']
+  ]
+  
+  let output = [];
+  let newArray = base;
+  output.push(newArray);
+  while(newArray.length>1) {
+    let item = [];
+    let level = [];
+    let array = newArray.split(' ');
+    for (let i = 0; i < array.length; i++) { 
+      let pair = [array[i], array[i + 1]].join("_"); 
+      item.push(pair);
+      console.log(item);
+      for(let j =0; j< conditions.length;j++){
+        if(pair.toString()===conditions[j][0]){
+          level.push(conditions[j][1]);
+        }
+      }
+      
+    }
+    newArray = level.join(' ');
+    console.log(newArray);
+    output.unshift(newArray);
+  }
+  return output; 
+} 
+console.log(decorateTree(b));
