@@ -500,3 +500,28 @@ function decorateTree (base) {
   return output; 
 } 
 console.log(decorateTree(b));
+
+
+let letter=`Hey santa Claus .  I want a bike.   I want a videogame! `
+let resultado = "Hey Santa Claus. I want a bike. I want a videogame!";
+
+function fixLetter(letter) {
+  let simp = letter
+    .replace(/([,.?!])([^,.?!])/g, '$1 $2') //deja un especio después de cada signo
+    .replace(/\s+/g, ' ') //eliminar múltiples espacios en blanco y dejar uno solo
+    .replace(/([,.?!]{2,})/g, $1 => $1[0]) // Si se repite un signo varias veces deja uno solo
+    .replace(/([.?!])(\s)([A-z])/g, // Primera letra de cada oración debe estar en mayúscula
+      (_, $1, $2, $3) => $1 + $2 + $3.toUpperCase()
+    )
+    .replace(/(santa claus)/gi, 'Santa Claus') //Poner en mayúscula la palabra "santa claus" si aparece
+    .trim() //Eliminar espacios de inicio y final
+    .replace(/\s([,.?!])/g, '$1') //Quitar espacios de coma o punto
+    .replace(/^([A-z])/g, $1 => $1.toUpperCase()) //Primera letra de carta debe estar en mayúscula
+    .replace(/([^.?!])$/g, '$1.') //Colocar punto al final de la frase si no hay puntuación
+
+  return simp
+}
+
+console.log(fixLetter(letter));
+console.log(resultado);
+console.log(fixLetter(letter)===resultado);
