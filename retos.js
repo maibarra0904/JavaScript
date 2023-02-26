@@ -525,3 +525,38 @@ function fixLetter(letter) {
 console.log(fixLetter(letter));
 console.log(resultado);
 console.log(fixLetter(letter)===resultado);
+
+let gif = ['toy', 'toy', 'toy', 'toy'];
+let maxW = 2;
+
+function carryGifts(gifts, maxWeight) {
+  let sum = 0;
+  let acum = [];
+  let result = [];
+  
+  for(let i=0; i<gifts.length; i++) {
+    sum+=gifts[i].length;
+    if(sum<=maxWeight){
+      acum.push(gifts[i]);
+      if(i===gifts.length-1){
+        result.push(acum.join(" "));
+      }
+    }
+    else {
+      result.push(acum.join(" "));
+      acum =[];
+      gifts[i].length>maxWeight?acum =[]: acum.push(gifts[i]);
+      sum = gifts[i].length;
+      if(i===gifts.length-1){
+        result.push(acum.join(" "));
+      }
+    }
+  }
+
+
+  result = result.join("")!=="" ? result : [];
+
+  return result; 
+}
+
+console.log(carryGifts(gif, maxW));
