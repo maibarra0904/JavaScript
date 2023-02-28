@@ -560,3 +560,35 @@ function carryGifts(gifts, maxWeight) {
 }
 
 console.log(carryGifts(gif, maxW));
+
+let dry = 2
+let nums = 20
+
+function dryNumber(dry, numbers) {
+  let result =[]; 
+  for(let i = 1;i<numbers+1;i++){
+    if(i.toString().includes(dry.toString())){
+      result.push(i);
+    }
+  } 
+
+  return result;
+}
+
+console.log(dryNumber(dry,nums));
+
+const moreToys = ['ball', 'doll', 'car', 'puzzle']
+const morePositions = [2, 3, 1, 0]
+
+function sortToys(toys, positions) {
+  
+  let arr = [];
+  for(let i =0; i<positions.length;i++) {
+    arr.push([positions[i],toys[i]]);
+  }
+  arr.sort((a, b) => a[0] - b[0])
+  const result = arr.map(el => el[1]);
+  return result;
+}
+
+console.log(sortToys(moreToys,morePositions));
