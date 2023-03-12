@@ -592,3 +592,89 @@ function sortToys(toys, positions) {
 }
 
 console.log(sortToys(moreToys,morePositions));
+
+const reindeerTypes = [
+  { type: 'Nuclear', weightCapacity: 50 },
+  { type: 'Electric', weightCapacity: 10 },
+  { type: 'Gasoline', weightCapacity: 5 },
+  { type: 'Diesel', weightCapacity: 1 }
+]
+
+const gifts = [
+  { country: 'Spain', weight: 30 },
+  { country: 'Spain', weight: 17 },
+  { country: 'France', weight: 50 }
+]
+
+// function howManyReindeers(reindeerTypes, gifts) {
+  
+//   let total = [];
+//   let acum = 0;
+//   const mapWeightCap = reindeerTypes.map(el => el.weightCapacity);
+//   const mapGifts = gifts.map(el => reindeerTypes.map(el2 => 
+//     (el.weight -   (el.weight % el2.weightCapacity))/el2.weightCapacity));
+  
+//   for(let i=0; i<mapGifts.length; i++) {
+//     let giftR = [];
+//     let acum = gifts[i].weight;
+//     let acumGen = 0;
+
+//     for(let j=0; j<mapGifts[i].length; j++) {
+//       if(mapGifts[i][j]!=0) {
+//         if((acum - (mapGifts[i][j] * mapWeightCap[j]))>=0){
+          
+//           giftR[j] = (mapGifts[i][j] * mapWeightCap[j]);
+//           acum =  acum - giftR[j];
+//           acumGen += mapGifts[i][j] * mapWeightCap[j]
+//           console.log(giftR);
+//         }
+//         else {
+//           giftR[j] = (mapGifts[i][j] * mapWeightCap[j]) - acumGen;
+//           console.log(giftR);
+          
+//         }  
+        
+//       }
+//       else {
+//         giftR[j] = 0;
+//       }
+//     }
+//     total.push(giftR);
+//   }
+
+//   console.log(mapGifts);
+
+//   return total;
+// }
+
+function howManyReindeers(reindeerTypes, gifts) {
+  reindeerTypes.sort((a, b) => a.weightCapacity - b.weightCapacity)
+
+  const traverse = (reindeers, weight) => {
+    reindeerTypes.forEach(({ weightCapacity }, i) => {
+      if (weight - weightCapacity >= 0) {
+        reindeers[i].num += 1
+        weight -= weightCapacity
+      }
+    })
+    return weight > 0
+      ? traverse(reindeers, weight)
+      : reindeers
+  }
+
+  return gifts.map(({ country, weight }) => {
+    const result = traverse(reindeerTypes.map(({ type }) => {
+      return {
+        type: type,
+        num: 0
+      }
+    }), weight)
+    return {
+      country: country,
+      reindeers: result.reverse().filter(({ num }) => !!num)
+    }
+  })
+}
+
+
+console.log(howManyReindeers(reindeerTypes, gifts));
