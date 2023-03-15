@@ -678,3 +678,29 @@ function howManyReindeers(reindeerTypes, gifts) {
 
 
 console.log(howManyReindeers(reindeerTypes, gifts));
+
+const regalos = [
+  { name: 'Game', quantity: 2 },
+  { name: 'Bike', quantity: 1 },
+  { name: 'Book', quantity: 3 }
+];
+
+function printTable(gifts) {
+  let longName = 4;
+  let longQuantity = 8;
+  let table = [];
+
+  gifts.forEach(el => el.name.length>longName ? longName=el.name.length : null);
+  gifts.forEach(el => el.quantity.toString().length>longQuantity ? longQuantity=el.quantity.toString().length : null);
+  
+  table.push("+".repeat(7+longName+longQuantity));
+  table.push("| Gift"+" ".repeat(longName-4)+" | Quantity"+" ".repeat(longQuantity-8)+" |");
+  table.push("| "+"-".repeat(longName)+" | "+"-".repeat(longQuantity)+" |");
+  gifts.forEach(el => table.push("| "+el.name+" ".repeat(longName-el.name.length)+" | "+el.quantity+" ".repeat(longQuantity-el.quantity.toString().length)+" |"));
+  table.push("*".repeat(7+longName+longQuantity));
+
+  return table.join("\n");
+
+}
+
+console.log(printTable(regalos));
