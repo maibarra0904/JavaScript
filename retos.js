@@ -704,3 +704,44 @@ function printTable(gifts) {
 }
 
 console.log(printTable(regalos));
+
+const systemNames = ["tree_1", "tree_2", "house", "tree_1", "tree_2", "house"]
+const stepNumbers = [1, 33, 10, 2, 44, 20]
+// function checkStepNumbers(systemNames, stepNumbers) {
+//   let Names = systemNames.filter((x, i) => systemNames.indexOf(x) === i);
+//   let arr = {};
+//   let arr2 = {};
+//   for (let i = 0; i < systemNames.length; i++) {
+//     if (!arr[systemNames[i]]) {
+//       arr[systemNames[i]] = [];
+//       arr2[systemNames[i]] = [];
+//     }
+//     arr[systemNames[i]].push(stepNumbers[i]);
+//     arr2[systemNames[i]].push(stepNumbers[i]);
+//   }
+  
+//   let result = true;
+//   for(let i=0; i<Names.length ; i++) {
+//     console.log(arr[Names[i]]);
+//     console.log(arr2[Names[i]].sort((a,b) =>a-b));
+//     if(arr[Names[i]]) {
+//       result = result && arr[Names[i]].toString() === arr2[Names[i]].sort((a,b) =>a-b).toString();
+//     }
+//     else {
+//       result = true;
+//     }
+//   }
+  
+//   return  result;
+// }
+
+function checkStepNumbers(systemNames, stepNumbers) {
+  return systemNames.every((e, i) => 
+    stepNumbers[i] < stepNumbers[
+      i + systemNames.slice(i + 1).indexOf(e) + 1
+    ] + !(systemNames.lastIndexOf(e) - i)
+  )
+}
+
+
+console.log(checkStepNumbers(systemNames,stepNumbers));
