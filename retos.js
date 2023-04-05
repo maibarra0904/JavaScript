@@ -745,3 +745,159 @@ function checkStepNumbers(systemNames, stepNumbers) {
 
 
 console.log(checkStepNumbers(systemNames,stepNumbers));
+
+
+//Reto 23
+
+let commands = [
+  'MOV 10,V00', // V00 es 10
+  'DEC V00',    // decrementa V00 en 1  <---┐
+  'INC V01',    // incrementa V01 en 1      |
+  'JMP 1',      // bucle hasta que V00 sea 0 ----┘
+  'INC V06'     // incrementa V06 en 1
+]
+
+// function executeCommands(commands) {
+  
+//   let out = [0, 0, 0, 0, 0, 0, 0];
+//   let arr = commands.map(el => el.split(' '));// Division de comando e instrucción
+//   let arr2 = arr.map(el => [el[0],el[1].split(',')]); //Subdivisión de instrucción
+
+//   function exec(el,out) {
+    
+//       let com1 = el[1][0] ? el[1][0] : null; //Numero o ubicación
+//       let com2 = el[1][1] ? el[1][1] : null; //Ubicación o null
+//       switch (el[0]) {
+//         case 'MOV':
+          
+//           if(isNaN(com1)) {
+//             out[parseInt(com2[2])] = out[parseInt(com1[2])]; //Asigna el valor de Y en X
+//           } else {
+//             out[parseInt(com2[2])] = parseInt(com1); //Asigna el valor a X
+//           }
+//           break;
+          
+//         case 'ADD':
+//           out[parseInt(com1[2])] += out[parseInt(com2[2])]; //Incrementa el valor en memoria al anterior
+//           break;
+
+//         case 'DEC':
+//           out[parseInt(com1[2])] -= 1;  //Decrementa su valor en 1
+//           break;
+
+//         case 'INC':
+//           out[parseInt(com1[2])] += 1; //Incrementa su valor en 1
+//           break;
+//         default:
+//           break;
+        
+//       }
+    
+//   }
+
+//   arr2.map(function an(el, index){
+    
+//     let com1 = el[1][0] ? el[1][0] : null; //Numero o ubicación
+//     let com2 = el[1][1] ? el[1][1] : null; //Ubicación o null
+
+//     switch (el[0]) {
+//       case 'MOV':
+        
+//         if(isNaN(com1)) {
+//           out[parseInt(com2[2])] = out[parseInt(com1[2])]; //Asigna el valor de Y en X
+//         } else {
+//           out[parseInt(com2[2])] = parseInt(com1); //Asigna el valor a X
+//         }
+//         break;
+        
+//       case 'ADD':
+//         out[parseInt(com1[2])] += out[parseInt(com2[2])]; //Incrementa el valor en memoria al anterior
+//         break;
+
+//       case 'DEC':
+//         out[parseInt(com1[2])] -= 1;  //Decrementa su valor en 1
+//         break;
+
+//       case 'INC':
+//         console.log(out[0]);
+//         out[parseInt(com1[2])] += 1; //Incrementa su valor en 1
+//         break;
+//       case 'JMP':
+//         let arr = commands.map((_, i) => commands.slice(parseInt(com1), i + 1));
+//         let newCom = arr[index-1];
+//         while(out[0]!==0){
+//           console.log('ok');
+//           newCom.map((el)=>exec(el,out));
+//         }
+//         break;
+
+//       default:
+//         break;
+      
+//     }
+//   })
+
+//   let sal = out.map(el => el & 0xff)
+//   // & 0xff
+//   return sal ;
+// }
+
+function executeCommands(commands) {
+  const maxValue = 256
+
+  const registries = {
+    V00: 0,
+    V01: 0,
+    V02: 0,
+    V03: 0,
+    V04: 0,
+    V05: 0,
+    V06: 0,
+    V07: 0
+  }
+
+  const actions = {
+    MOV: (value, registry) => {
+      registries[registry] = value.startsWith('V')
+        ? registries[value]
+        : +value
+    },
+    ADD: (registry1, registry2) => {
+      registries[registry1] = (
+        registries[registry1] + registries[registry2]
+      ) % maxValue
+    },
+    DEC: registry => {
+      registries[registry] = (
+        registries[registry] - 1 + maxValue
+      ) % maxValue
+    },
+    INC: registry => {
+      registries[registry] = (
+        registries[registry] + 1
+      ) % maxValue
+    },
+    JMP: (position, index) => {
+      if (registries.V00 > 0) {
+        commands.slice(position, index + 1)
+          .forEach(command => executeAction(command, index))
+      }
+    }
+  }
+
+  const executeAction = (action, index) => {
+    const [ command, args ] = action.split(' ')
+    const argsList = args.split(',').map(argument => 
+      argument.replace(/V(\d+)/, (_, p1) => `V0${p1 % 8}`)
+    )
+    actions[command](...argsList, index)
+  }
+
+  commands.forEach(executeAction)
+  let registriesResult = Object.values(registries)
+
+  return registriesResult
+}
+
+
+console.log(executeCommands(commands));
